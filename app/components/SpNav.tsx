@@ -1,6 +1,6 @@
 "use client";
 import Link from 'next/link';
-import { useState} from 'react';
+import { useState } from 'react';
 import { AiOutlineMenu } from "react-icons/ai";
 import { BsArrowUpRight } from "react-icons/bs";
 
@@ -9,7 +9,7 @@ export default function SpNav() {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <>
-      <div className="block sm:hidden fixed top-0 left-0 m-4 p-4 bg-black text-white">
+      <div className="block sm:hidden fixed top-0 left-0 m-4 bg-black px-4 py-3 text-white">
         <button 
           onClick={() => setIsOpen(!isOpen)}
         >
