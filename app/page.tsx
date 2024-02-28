@@ -9,19 +9,6 @@ import MV from './components/MV';
 export default function Home() {
   return (
     <>
-      <div className="container mx-auto max-w-screen-lg mt-4">
-        <div className="flex justify-center">
-          <Image 
-            src="/images/logo.png"
-            alt="logo"
-            width={240}
-            height={240}
-            priority
-          />
-        </div>
-      </div>
-      <SpNav />
-      <NavBar />
       <div className="container mx-auto max-w-screen-lg md:mt-8">
         <div className="flex justify-center">
           <Image 
@@ -50,7 +37,6 @@ export default function Home() {
           <Xtimeline />
         </div>
       </div>
-      <Footer />
     </>
   );
 }
