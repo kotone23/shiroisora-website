@@ -3,17 +3,25 @@
  * @see https://v0.dev/t/4QUG7D9huwm
  */
 import { CardTitle, CardDescription, CardHeader, CardContent, CardFooter, Card } from "@/app/components/ui/card"
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/app/components/ui/dialog"
+import { ScrollArea } from "@/app/components/ui/scroll-area"
+
+import { PiChatTeardropTextLight } from "react-icons/pi";
 
 export function Discography() {
   return (
     <main className="flex flex-col items-center justify-center p-4 md:p-6">
-      <h1 className="text-4xl font-bold mb-2">Discography</h1>
-      <div className="flex justify-center space-x-4 mb-6">
-        <div className="h-6 w-6 text-red-600" />
-        <div className="h-6 w-6 text-green-600" />
-      </div>
+      <h1 className="text-4xl font-bold mt-2 mb-8">Discography</h1>
       <section className="grid grid-cols-1 gap-4 md:gap-6 xl:gap-8">
-        <Card className="w-lg max-w-xl p-6 grid gap-0">
+        <Card className="w-lg max-w-xl p-6">
           <CardHeader className="grid gap-1 text-center space-y-0 p-0">
             <CardTitle className="text-lg">Album Title</CardTitle>
             <CardDescription className="text-xs">1st full album - Feb. 25, 2024</CardDescription>
@@ -30,42 +38,139 @@ export function Discography() {
               }}
               width={240}
             />
-            <div className="p-0 grid gap-2">
-              <div className="flex items-center gap-2 text-sm">
-                <div className="flex gap-2 items-center">1. Song Title</div>
+            <div className="p-0 grid gap-2 text-sm">
+              <div className="flex items-center">
+                <div>1. おはよう</div>
+                <Dialog>
+                  <DialogTrigger>
+                    <PiChatTeardropTextLight className="ml-2" />
+                  </DialogTrigger>
+                  <DialogContent className="max-h-full w-10/12 max-w-xl rounded">
+                    <DialogHeader>
+                      <DialogTitle>おはよう</DialogTitle>
+                    </DialogHeader>
+                    <DialogFooter className="flex text-center text-sm">
+                      <ScrollArea className="max-h-96">
+                        朝の光が窓を叩く<br/>
+                        おはよう、まだ夢の中<br/>
+                        世界がゆっくり色づく時<br/>
+                        ふわり、心も踊り出す<br/><br/>
+
+                        おはよう、この瞬間から<br/>
+                        君と歩む、時間のリズム<br/><br/>
+                      </ScrollArea>
+                    </DialogFooter>
+                  </DialogContent>
+                </Dialog>
               </div>
-              <div className="flex items-center gap-2 text-sm">
-                <div className="flex gap-2 items-center">2. Song Title</div>
+              <div>2. Song Title</div>
+              <div>3. Song Title</div>
+              <div>4. Song Title</div>
+              <div>5. Song Title</div>
+              <div>
+                <Dialog>
+                  <DialogTrigger>
+                    <p className="underline decoration-dotted hover:no-underline">6. こんにちは</p>
+                  </DialogTrigger>
+                  <DialogContent className="max-h-full w-10/12 max-w-xl rounded">
+                    <DialogHeader>
+                      <DialogTitle>こんにちは</DialogTitle>
+                    </DialogHeader>
+                    <DialogFooter className="flex text-center text-sm">
+                      <ScrollArea className="max-h-96">
+                        街を歩けば、風がささやく<br/>
+                        今日もいいことがあるように<br/>
+                        小さな幸せが足元を照らして<br/>
+                        心躍る、この時間<br/><br/>
+
+                        こんにちは、君にとっての今日が<br/>
+                        笑顔で満たされますように<br/>
+                        手を振る人、交わる言葉一つ一つに<br/>
+                        暖かな光が宿って<br/><br/>
+                      </ScrollArea>
+                    </DialogFooter>
+                  </DialogContent>
+                </Dialog>
               </div>
-              <div className="flex items-center gap-2 text-sm">
-                <div className="flex gap-2 items-center">3. おはよう</div>
+              <div>7. Song Title</div>
+              <div>8. Song Title</div>
+              <div>
+                <Dialog>
+                  <DialogTrigger>
+                    <p className="underline decoration-dotted hover:no-underline">9. こんばんは</p>
+                  </DialogTrigger>
+                  <DialogContent className="max-h-full w-10/12 max-w-xl rounded">
+                    <DialogHeader>
+                      <DialogTitle>こんばんは</DialogTitle>
+                    </DialogHeader>
+                    <DialogFooter className="flex text-center text-sm">
+                      <ScrollArea className="max-h-96">
+                        街灯が一つ、夜を照らし出す<br/>
+                        静かに足音だけが響く<br/>
+                        こんばんは、静けさの中で<br/>
+                        風に問いかける<br/><br/>
+
+                        夜風が窓を優しく叩く<br/>
+                        君の温もりを想像してみる<br/>
+                        こんばんは、心の奥深くで<br/>
+                        夢と現実の間で<br/><br/>
+                      </ScrollArea>
+                    </DialogFooter>
+                  </DialogContent>
+                </Dialog>
               </div>
-              <div className="flex items-center gap-2 text-sm">
-                <div className="flex gap-2 items-center">4. Song Title</div>
-              </div>
-              <div className="flex items-center gap-2 text-sm">
-                <div className="flex gap-2 items-center">5. Song Title</div>
-              </div>
-              <div className="flex items-center gap-2 text-sm">
-                <div className="flex gap-2 items-center">6. こんにちは</div>
-              </div>
-              <div className="flex items-center gap-2 text-sm">
-                <div className="flex gap-2 items-center">7. Song Title</div>
-              </div>
-              <div className="flex items-center gap-2 text-sm">
-                <div className="flex gap-2 items-center">8. Song Title</div>
-              </div>
-              <div className="flex items-center gap-2 text-sm">
-                <div className="flex gap-2 items-center">9. こんばんは</div>
-              </div>
-              <div className="flex items-center gap-2 text-sm">
-                <div className="flex gap-2 items-center">10. Song Title</div>
-              </div>
-              <div className="flex items-center gap-2 text-sm">
-                <div className="flex gap-2 items-center">11. Song Title</div>
-              </div>
-              <div className="flex items-center gap-2 text-sm">
-                <div className="flex gap-2 items-center">12. おはよう、こんにちは、こんばんは</div>
+              <div>10. Song Title</div>
+              <div>11. Song Title</div>
+              <div>
+                12. おはよう、こんにちは、こんばんは
+                <Dialog>
+                  <DialogTrigger>
+                    <PiChatTeardropTextLight className="ml-2" />
+                  </DialogTrigger>
+                  <DialogContent className="max-h-full w-10/12 max-w-xl rounded">
+                    <DialogHeader>
+                      <DialogTitle>おはよう、こんにちは、こんばんは</DialogTitle>
+                    </DialogHeader>
+                    <DialogFooter className="flex text-center text-sm">
+                      <ScrollArea className="max-h-96">
+                        朝の光が窓を叩く<br/>
+                        おはよう、まだ夢の中<br/>
+                        世界がゆっくり色づく時<br/>
+                        ふわり、心も踊り出す<br/><br/>
+
+                        おはよう、この瞬間から<br/>
+                        こんにちは、昼下がりには<br/>
+                        こんばんは、星が瞬く<br/>
+                        君と歩む、時間のリズム<br/><br/>
+
+                        昼下がり、人波をすり抜けて<br/>
+                        こんにちは、声を重ねて<br/>
+                        日差しの中、影が踊る<br/>
+                        僕らは夢と現実の間で<br/><br/>
+
+                        おはよう、この瞬間から<br/>
+                        こんにちは、昼下がりには<br/>
+                        こんばんは、星が瞬く<br/>
+                        君と歩む、時間のリズム<br/><br/>
+
+                        静かに流れる雲を見上げて<br/>
+                        時間の流れに思いを馳せる<br/>
+                        君の手を握り、願う<br/>
+                        この瞬間が永遠に続くように<br/><br/>
+
+                        おはよう、そしてまた会おう<br/>
+                        こんにちは、いつものように<br/>
+                        こんばんは、さよならの前に<br/>
+                        君という奇跡に、ありがとう<br/><br/>
+
+                        おはよう、こんにちは、こんばんは<br/>
+                        繰り返す日々の中で<br/>
+                        君という光を見つけた<br/>
+                        夢のような、この時間を<br/>
+                      </ScrollArea>
+                    </DialogFooter>
+                  </DialogContent>
+                </Dialog>
               </div>
             </div>
           </CardContent>
@@ -74,7 +179,7 @@ export function Discography() {
             ultricies, in dignissim ex ultricies.
           </CardFooter>
         </Card>
-        <Card className="w-lg max-w-xl p-6 grid gap-0">
+        <Card className="w-lg max-w-xl p-6">
           <CardHeader className="grid gap-1 text-center space-y-0 p-0">
             <CardTitle className="text-lg">Single Title</CardTitle>
             <CardDescription className="text-xs">Digital release - Jan. 12, 2024</CardDescription>
@@ -91,27 +196,21 @@ export function Discography() {
               }}
               width={240}
             />
-            <div className="p-0 grid gap-2">
-              <div className="flex items-center gap-2 text-sm">
-                <div className="flex gap-2 items-center">1. Song Title</div>
-              </div>
-              <div className="flex items-center gap-2 text-sm">
-                <div className="flex gap-2 items-center">2. Song Title</div>
-              </div>
-              <div className="flex items-center gap-2 text-sm">
-                <div className="flex gap-2 items-center">3. おはよう</div>
-              </div>
+            <div className="p-0 grid gap-2 text-sm">
+              <div>1. Song Title</div>
+              <div>2. Song Title</div>
+              <div>3. Song Title</div>
             </div>
           </CardContent>
           <CardFooter className="text-sm mt-4">
-            Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis libero in justo
-            ultricies, in dignissim ex ultricies.
+            Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis libero in justo ultricies, in dignissim ex ultricies.
           </CardFooter>
         </Card>
-        <Card className="w-lg max-w-xl p-6 grid gap-0">
+        <Card className="w-lg max-w-xl p-6">
           <CardHeader className="grid gap-1 text-center space-y-0 p-0">
             <CardTitle className="text-lg">Single Title</CardTitle>
             <CardDescription className="text-xs">Single - Sep. 5, 2023</CardDescription>
+            <CardDescription className="text-sm">500円</CardDescription>
           </CardHeader>
           <CardContent className="flex flex-col md:flex-row items-center gap-8 justify-center mt-4">
             <img
@@ -125,15 +224,13 @@ export function Discography() {
               }}
               width={240}
             />
-            <div className="p-0 grid gap-2">
-              <div className="flex items-center gap-2 text-sm">
-                <div className="flex gap-2 items-center">1. Song Title</div>
-              </div>
+            <div className="p-0 grid gap-2 text-sm">
+              <div>1. フォール・イン・ラヴ</div>
             </div>
           </CardContent>
           <CardFooter className="text-sm mt-4">
-            Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis libero in justo
-            ultricies, in dignissim ex ultricies.
+            全曲トレーラーをYouTubeで視聴できます。<br/>
+            ライブ会場にてご購入いただけます。
           </CardFooter>
         </Card>
       </section>
