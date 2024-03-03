@@ -15,6 +15,7 @@ import {
 import { ScrollArea } from "@/app/components/ui/scroll-area"
 
 import { PiChatTeardropTextLight } from "react-icons/pi";
+import { FaYoutube, FaSpotify, FaApple } from "react-icons/fa6";
 
 export function Discography() {
   return (
@@ -25,6 +26,14 @@ export function Discography() {
           <CardHeader className="grid gap-1 text-center space-y-0 p-0">
             <CardTitle className="text-lg">Album Title</CardTitle>
             <CardDescription className="text-xs">1st full album - Feb. 25, 2024</CardDescription>
+            <CardDescription className="flex justify-center space-x-2">
+              <a href="https://open.spotify.com" target="_blank">
+                <FaSpotify />
+              </a>
+              <a href="https://music.apple.com" target="_blank">
+                <FaApple />
+              </a>              
+            </CardDescription>
           </CardHeader>
           <CardContent className="flex flex-col md:flex-row items-center gap-8 justify-center mt-4">
             <img
@@ -39,11 +48,10 @@ export function Discography() {
               width={240}
             />
             <div className="p-0 grid gap-2 text-sm">
-              <div className="flex items-center">
-                <div>1. おはよう</div>
+              <div>1. おはよう
                 <Dialog>
                   <DialogTrigger>
-                    <PiChatTeardropTextLight className="ml-2" />
+                    <PiChatTeardropTextLight className="ml-2 inline" />
                   </DialogTrigger>
                   <DialogContent className="max-h-full w-10/12 max-w-xl rounded">
                     <DialogHeader>
@@ -118,14 +126,19 @@ export function Discography() {
                     </DialogFooter>
                   </DialogContent>
                 </Dialog>
+                <a href="https://www.youtube.com/" target="_blank">
+                  <FaYoutube  className="ml-2 inline"/>
+                </a>
               </div>
               <div>10. Song Title</div>
-              <div>11. Song Title</div>
+              <div>
+                11. Song Title
+              </div>
               <div>
                 12. おはよう、こんにちは、こんばんは
                 <Dialog>
                   <DialogTrigger>
-                    <PiChatTeardropTextLight className="ml-2" />
+                    <PiChatTeardropTextLight className="ml-2 inline" />
                   </DialogTrigger>
                   <DialogContent className="max-h-full w-10/12 max-w-xl rounded">
                     <DialogHeader>
@@ -171,6 +184,9 @@ export function Discography() {
                     </DialogFooter>
                   </DialogContent>
                 </Dialog>
+                <a href="https://www.youtube.com/" target="_blank">
+                  <FaYoutube  className="ml-2 inline"/>
+                </a>
               </div>
             </div>
           </CardContent>
