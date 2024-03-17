@@ -30,7 +30,7 @@ export default function NavBar() {
             <nav className="container mx-auto max-w-screen-lg">
               <ul className="flex justify-center space-x-16 w-full">
                 <li className="mx-2"><Link href="/" className="hover:underline">Top</Link></li>
-                <li className="mx-2"><Link href="/#live" className="hover:underline">Live</Link></li>
+                <li className="mx-2"><Link href="/live" className="hover:underline">Live</Link></li>
                 <li className="mx-2"><Link href="/discography" className="hover:underline">Discography</Link></li>
                 <li className="mx-2"><Link href="/#shop" className="hover:underline">
                   <span className="flex items-center">

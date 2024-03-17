@@ -6,6 +6,8 @@ import Xtimeline from './components/Xtimeline';
 import { Instagram } from './components/InstaEmbed';
 import MV from './components/MV';
 
+
+
 export default function Home() {
   return (
     <>

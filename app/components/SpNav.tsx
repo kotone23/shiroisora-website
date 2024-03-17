@@ -24,7 +24,7 @@ export default function SpNav() {
       >
         <ul>
           <li className="my-5"><Link href="/" className="hover:underline">Top</Link></li>
-          <li className="my-5"><Link href="/#live" className="hover:underline">Live</Link></li>
+          <li className="my-5"><Link href="/live" className="hover:underline">Live</Link></li>
           <li className="my-5"><Link href="/discography" className="hover:underline">Discography</Link></li>
           <li className="my-5"><Link href="/#shop" className="hover:underline">
             <span className="flex items-center">
