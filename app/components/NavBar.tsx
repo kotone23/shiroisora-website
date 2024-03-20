@@ -36,7 +36,7 @@ export default function NavBar() {
                   <span className="flex items-center">
                     Shop <BsArrowUpRight className="ml-0.5" />
                   </span></Link></li>
-                <li className="mx-2"><Link href="/#media" className="hover:underline">Media</Link></li>
+                <li className="mx-2"><Link href="/media" className="hover:underline">Media</Link></li>
                 <li className="mx-2"><Link href="/#contact" className="hover:underline">Contact</Link></li>
               </ul>
             </nav>

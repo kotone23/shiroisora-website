@@ -6,8 +6,8 @@ export default function LivePage() {
   return (
     <div className="container max-w-screen-lg mx-auto px-4">
       <h1 className="flex justify-center text-4xl font-bold mt-8 mb-8">Live</h1>
-      <div className="border-b py-4 md:flex">
-        <div className="md:w-1/6 md:px-4 md:mt-0.5">
+      <div className="border-t py-4 md:flex">
+        <div className="text-muted-foreground md:w-1/6 md:px-4 md:mt-0.5">
           2024年5月21日
         </div>
         <div className="md:w-5/6 md:pl-4">
@@ -31,8 +31,8 @@ export default function LivePage() {
       </div>
 
       <h2 className="flex justify-center text-3xl font-semibold mt-8 mb-8">Past live</h2>
-      <div className="border-b py-4 md:flex">
-        <div className="md:w-1/6 md:px-4 md:mt-0.5">
+      <div className="border-t py-4 md:flex">
+        <div className="text-muted-foreground md:w-1/6 md:px-4 md:mt-0.5">
           2024年2月25日
         </div>
         <div className="md:w-5/6 md:pl-4">
@@ -55,8 +55,8 @@ export default function LivePage() {
         </div>
       </div>
 
-      <div className="border-b py-4 md:flex">
-        <div className="md:w-1/6 md:px-4 md:mt-0.5">
+      <div className="border-t py-4 md:flex">
+        <div className="text-muted-foreground md:w-1/6 md:px-4 md:mt-0.5">
           2024年2月22日
         </div>
         <div className="md:w-5/6 md:pl-4">
@@ -82,8 +82,8 @@ export default function LivePage() {
           </div>
         </div>
       </div>
-      <div className="border-b py-4 md:flex">
-        <div className="md:w-1/6 md:px-4 md:mt-0.5">
+      <div className="border-t py-4 md:flex">
+        <div className="text-muted-foreground md:w-1/6 md:px-4 md:mt-0.5">
           2023年12月29日
         </div>
         <div className="md:w-5/6 md:pl-4">
