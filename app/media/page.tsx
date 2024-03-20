@@ -1,17 +1,15 @@
+import { getMediaContents } from "@/lib/cms";
+import MediaEntry from "../components/MediaEntry";
 
-export default function MediaPage() {
+export default async function MediaPage() {
+  const contents = await getMediaContents();
+
   return (
     <div className="container max-w-screen-lg mx-auto px-4">
       <h1 className="flex justify-center text-4xl font-bold mt-8 mb-8">Media</h1>
-      <div className="border-t py-4 md:flex">
-        <div className="text-muted-foreground md:w-1/6 md:px-4 md:mt-0.5">
-          2023年8月28日
-        </div>
-        <div className="md:w-5/6 md:pl-4">
-          <p><a className="underline" href="https://skream.jp/livereport/2023/08/liveholic_8th_anniversary_series_1_1.php">LIVE REPORT | Lilubay / 國 / シロイソラ / MGML</a></p>
-          <p>Skream! マガジン 2023年8月号に掲載していただきました。</p>
-        </div>
-      </div>
+      {contents.map((content) => (
+        <MediaEntry key={content.sys.id} date={content.date} description={content.description} />
+      ))}
 
       <div className="border-t py-4 md:flex">
         <div className="text-muted-foreground md:w-1/6 md:px-4 md:mt-0.5">
