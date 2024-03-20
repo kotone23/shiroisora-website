@@ -6,7 +6,6 @@ import Link from 'next/link';
 const MyMarkdown = ({ markdown }: { markdown: string }) => {
   return (
     <ReactMarkdown
-      children={markdown}
       remarkPlugins={[remarkBreaks]}
       components={{
         // aタグに対するカスタムコンポーネントを定義
@@ -20,7 +19,7 @@ const MyMarkdown = ({ markdown }: { markdown: string }) => {
           }
         } as Components
       }
-    />  
+    >{markdown}</ReactMarkdown>  
   );
 };
 
