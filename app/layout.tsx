@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import { Noto_Sans_JP, Murecho } from 'next/font/google'
 import Image from 'next/image'
+import Link from 'next/link'
+import { draftMode } from "next/headers";
 import NavBar from './components/NavBar'
 import SpNav from './components/SpNav';
 import Footer from './components/Footer';
@@ -20,6 +22,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const { isEnabled } = draftMode();
   return (
     <html lang="ja">
       <body className={notoSansJP.className}>
@@ -36,6 +39,11 @@ export default function RootLayout({
         </div>
         <SpNav />
         <NavBar />
+        {isEnabled && 
+          <p className="flex justify-center mt-4 text-orange-500">
+            <Link href="/api/disable-draft" prefetch={false} className="hover:underline">ドラフトモードをやめる</Link>
+          </p>
+        }
         {children}
         <Footer />
       </body>

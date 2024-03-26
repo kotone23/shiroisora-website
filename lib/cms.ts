@@ -1,4 +1,4 @@
-import { Media } from "./types";
+import { Media, Live } from "./types";
 
 interface GraphQLResponse<T> {
   data: T;
@@ -11,6 +11,36 @@ const MEDIA_GRAPHQL_FIELDS = `
   }
   description
   date
+`;
+
+const LIVE_GRAPHQL_FIELDS = `
+  sys {
+    id
+  }
+  title
+  venue {
+    name
+    url
+  }
+  date
+  time
+  charge
+  performers
+  description
+  setlistCollection (limit: 15) {
+    items {
+      title
+    }
+  }
+  encore
+  imagesCollection (limit: 2) {
+    items {
+      sys {
+        id
+      }
+      url
+    }
+  }
 `;
 
 async function fetchGraphQL<T>(query: string, preview = false): Promise<GraphQLResponse<T>> {
@@ -29,11 +59,11 @@ async function fetchGraphQL<T>(query: string, preview = false): Promise<GraphQLR
         }`,
       },
       body: JSON.stringify({ query }),
-      // Associate all fetches for articles with an "articles" cache tag so content can
+      // Associate all fetches for articles with a cache tag so content can
       // be revalidated or updated from Contentful on publish
       next: { 
         tags: ["all"],
-        // revalidate: 300
+        revalidate: 300
       },
     }
   ).then((response) => response.json());
@@ -41,7 +71,7 @@ async function fetchGraphQL<T>(query: string, preview = false): Promise<GraphQLR
 
 export async function getContents<T>(collectionName: string, fields: string, isDraftMode = false): Promise<T[]> {
   const query = `query {
-    ${collectionName}(preview: ${isDraftMode ? "true" : "false"}) {
+    ${collectionName}(order:date_DESC preview: ${isDraftMode ? "true" : "false"}) {
       items {
         ${fields}
       }
@@ -54,4 +84,8 @@ export async function getContents<T>(collectionName: string, fields: string, isD
 
 export async function getMediaContents(isDraftMode = false) {
   return await getContents<Media>("mediaCollection", MEDIA_GRAPHQL_FIELDS, isDraftMode);
+}
+
+export async function getLiveContents(isDraftMode = false) {
+  return await getContents<Live>("liveCollection", LIVE_GRAPHQL_FIELDS, isDraftMode);
 }

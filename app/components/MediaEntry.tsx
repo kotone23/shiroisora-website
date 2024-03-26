@@ -1,11 +1,9 @@
 import React from 'react';
 import MyMarkdown from './MyMarkdown';
 import { formatDate } from '@/lib/utils';
+import { Media } from '@/lib/types';
 
-type ContentProps = {
-  date: string;
-  description: string;
-};
+type ContentProps = Omit<Media, 'sys'>;
 
 const MediaEntry: React.FC<ContentProps> = ({ date, description }) => (
   <div className="border-t py-4 md:flex">
