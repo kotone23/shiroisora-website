@@ -5,6 +5,7 @@ import { NextRequest } from "next/server";
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
   const secret = searchParams.get("secret");
+  const page = searchParams.get("page")
 
   if (!secret) {
     return new Response("Missing parameters", { status: 400 });
@@ -15,5 +16,10 @@ export async function GET(request: NextRequest) {
   }
 
   draftMode().enable();
-  redirect("/");
+  switch (page) {
+    case 'live': redirect("/live"); break;
+    case 'discography': redirect("/discography"); break;
+    case 'media': redirect("/media"); break;
+    default: redirect("/");
+  }
 }
