@@ -25,7 +25,7 @@ export default async function LivePage() {
           encore={content.encore}
           imagesCollection={content.imagesCollection}
         />
-        )) : <p className="flex justify-center mt-10 mb-16">今後のライブの予定は決まり次第お知らせいたします</p>
+        )) : <p className="flex justify-center mt-10 mb-16">今後のライブは予定が決まり次第お知らせいたします</p>
       }
 
       <h2 className="flex justify-center text-3xl font-semibold mt-8 mb-8">Past live</h2>
