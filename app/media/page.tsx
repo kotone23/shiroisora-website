@@ -3,15 +3,21 @@ import { getMediaContents } from "@/lib/cms";
 import MediaEntry from "../components/MediaEntry";
 
 export default async function MediaPage() {
-  const { isEnabled } = draftMode();
-  const contents = await getMediaContents(isEnabled);
+	const { isEnabled } = draftMode();
+	const contents = await getMediaContents(isEnabled);
 
-  return (
-    <div className="container max-w-screen-lg mx-auto px-4">
-      <h1 className="flex justify-center text-4xl font-bold mt-8 mb-8">Media</h1>
-      {contents.map((content) => (
-        <MediaEntry key={content.sys.id} date={content.date} description={content.description} />
-      ))}      
-    </div>
-  );
+	return (
+		<div className="container max-w-screen-lg mx-auto px-4">
+			<h1 className="flex justify-center text-4xl font-bold mt-8 mb-8">
+				Media
+			</h1>
+			{contents.map((content) => (
+				<MediaEntry
+					key={content.sys.id}
+					date={content.date}
+					description={content.description}
+				/>
+			))}
+		</div>
+	);
 }
