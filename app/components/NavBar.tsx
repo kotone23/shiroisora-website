@@ -61,7 +61,7 @@ export default function NavBar() {
 									</Link>
 								</li>
 								<li className="mx-2">
-									<Link href="/#contact" className="hover:underline">
+									<Link href="/contact" className="hover:underline">
 										Contact
 									</Link>
 								</li>

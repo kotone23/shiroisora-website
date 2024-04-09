@@ -48,7 +48,7 @@ export default function SpNav() {
 						</Link>
 					</li>
 					<li className="my-5">
-						<Link href="/#contact" className="hover:underline">
+						<Link href="/contact" className="hover:underline">
 							Contact
 						</Link>
 					</li>
