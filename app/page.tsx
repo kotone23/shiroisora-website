@@ -18,7 +18,12 @@ export default function Home() {
 					/>
 				</div>
 			</div>
-			<BandMembers />
+			<div className="w-full mt-12 mb-2">
+				<h1 className="text-center text-xl">シロイソラ</h1>
+				<p className="text-center mt-2 text-muted-foreground text-sm italic">A non-pop, shoegaze girls band</p>
+				<BandMembers />
+			</div>
+			
 			<div className="container mx-auto mt-8 max-w-3xl h-auto">
 				<div className="mb-4">
 					<h1 className="text-center text-2xl">MV</h1>
