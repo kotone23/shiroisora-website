@@ -6,7 +6,7 @@ export default function Xtimeline() {
 		<Timeline
 			dataSource={{
 				sourceType: "profile",
-				screenName: "kkenyoshi",
+				screenName: "shiroisoraband",
 			}}
 			options={{
 				lang: "ja",

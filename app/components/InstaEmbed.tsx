@@ -10,7 +10,9 @@ export const Instagram = ({ url }: { url: string }) => {
 		s.setAttribute("async", "true");
 		document.head.appendChild(s);
 
+		// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 		if ((window as any).instgrm) {
+			// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 			(window as any).instgrm.Embeds.process();
 		}
 		return () => {
@@ -19,6 +21,7 @@ export const Instagram = ({ url }: { url: string }) => {
 	}, []);
 	return (
 		<div
+			// biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
 			dangerouslySetInnerHTML={{ __html: generateEmbedHtml(url) }}
 			ref={ref}
 		/>

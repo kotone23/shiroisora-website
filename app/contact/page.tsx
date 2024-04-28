@@ -44,7 +44,7 @@ export default function ContactPage() {
 			toast({
 				variant: "destructive",
 				title: "送信エラーが発生しました",
-				description: "お急ぎの場合は@shiroisora_bandまで",
+				description: "お急ぎの場合は@shiroisorabandまで",
 			});
 		}
 	}, [result, toast]);

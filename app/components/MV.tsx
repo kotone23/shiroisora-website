@@ -1,13 +1,15 @@
 "use client";
 import YouTube from "react-youtube";
 
-export default function MV() {
+interface MVProps {
+  videoId: string;
+}
+
+export default function MV({ videoId }: MVProps) {
 	return (
 		<YouTube
-			videoId="13yytDs4TeQ" //挿入したいyoutube動画のURL末尾を入力
-			opts={{
-				width: "100%",
-			}}
+			videoId={videoId}
+			iframeClassName="aspect-video w-full h-auto"
 		/>
 	);
 }
