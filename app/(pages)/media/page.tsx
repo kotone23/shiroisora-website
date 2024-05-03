@@ -1,6 +1,12 @@
-import { draftMode } from "next/headers";
+import MediaEntry from "@/app/components/MediaEntry";
 import { getMediaContents } from "@/lib/cms";
-import MediaEntry from "../components/MediaEntry";
+import type { Metadata } from "next";
+import { draftMode } from "next/headers";
+
+export const metadata: Metadata = {
+	title: "WHITE SKY | Media",
+	description: "WHITE SKY | Media",
+};
 
 export default async function MediaPage() {
 	const { isEnabled } = draftMode();

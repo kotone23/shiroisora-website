@@ -36,6 +36,11 @@ export default function SpNav() {
 						</Link>
 					</li>
 					<li className="my-5">
+						<Link href="/biography" className="hover:underline">
+							Biography
+						</Link>
+					</li>
+					<li className="my-5">
 						<Link href="/#shop" className="hover:underline">
 							<span className="flex items-center">
 								Shop <BsArrowUpRight className="ml-0.5" />

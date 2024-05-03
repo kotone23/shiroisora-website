@@ -1,18 +1,18 @@
 "use client";
+import { Field, FieldError } from "@/app/components/FormField";
+import { InputConform } from "@/app/components/conform/Input";
+import { RadioGroupConform } from "@/app/components/conform/RadioGroup";
+import { TextareaConform } from "@/app/components/conform/Textarea";
+import { Button } from "@/app/components/ui/button";
+import { Label } from "@/app/components/ui/label";
+import { Toaster } from "@/app/components/ui/toaster";
+import { useToast } from "@/app/components/ui/use-toast";
 import { submit } from "@/lib/form-actions";
 import { schema } from "@/lib/form-schema";
 import { useForm } from "@conform-to/react";
 import { parseWithZod } from "@conform-to/zod";
 import { useEffect } from "react";
 import { useFormState, useFormStatus } from "react-dom";
-import { Field, FieldError } from "../components/FormField";
-import { InputConform } from "../components/conform/Input";
-import { RadioGroupConform } from "../components/conform/RadioGroup";
-import { TextareaConform } from "../components/conform/Textarea";
-import { Button } from "../components/ui/button";
-import { Label } from "../components/ui/label";
-import { Toaster } from "../components/ui/toaster";
-import { useToast } from "../components/ui/use-toast";
 
 function Submit() {
 	const { pending } = useFormStatus();
@@ -23,7 +23,7 @@ function Submit() {
 	);
 }
 
-export default function ContactPage() {
+export default function Inquiry() {
 	const [result, action] = useFormState(submit, undefined);
 	const [form, fields] = useForm({
 		lastResult: result,
@@ -49,15 +49,7 @@ export default function ContactPage() {
 		}
 	}, [result, toast]);
 	return (
-		<div className="container max-w-screen-lg mx-auto px-4">
-			<h1 className="flex justify-center text-4xl font-bold mt-8 mb-8">
-				Contact
-			</h1>
-			<div className="flex justify-center mt-10 mb-10 w-10/12 sm:w-8/12 mx-auto">
-				ライブチケットのご予約や出演依頼はこちらのフォームからお願いいたします。
-				<br />
-				チケットのご予約の場合はライブの日程と枚数を必ずご記入ください（Googleフォームからもご予約いただけます）。
-			</div>
+    <div>
 			<div className="flex flex-col">
 				<form
 					id={form.id}

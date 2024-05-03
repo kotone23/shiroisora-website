@@ -49,6 +49,11 @@ export default function NavBar() {
 									</Link>
 								</li>
 								<li className="mx-2">
+									<Link href="/biography" className="hover:underline">
+										Biography
+									</Link>
+								</li>
+								<li className="mx-2">
 									<Link href="/#shop" className="hover:underline">
 										<span className="flex items-center">
 											Shop <BsArrowUpRight className="ml-0.5" />

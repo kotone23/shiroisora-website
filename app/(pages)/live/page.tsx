@@ -1,6 +1,13 @@
-import { draftMode } from "next/headers";
+import LiveEntry from "@/app/components/LiveEntry";
 import { getLiveContents } from "@/lib/cms";
-import LiveEntry from "../components/LiveEntry";
+import { draftMode } from "next/headers";
+import type { Metadata } from 'next'
+ 
+export const metadata: Metadata = {
+  title: 'WHITE SKY | Live',
+  description: 'WHITE SKY | Live',
+}
+
 
 export default async function LivePage() {
 	const { isEnabled } = draftMode();
