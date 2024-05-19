@@ -14,7 +14,7 @@ export default function Home() {
 			<div className="fixed h-screen w-screen top-0 -z-50">
 				<Image
 					alt="Mountains"
-					src="/images/town.jpg"
+					src="/images/town_.jpg"
 					quality={100}
 					fill
 					sizes="100vw"
