@@ -21,6 +21,7 @@ export default function Home() {
 					style={{
 						objectFit: "cover",
 					}}
+					className="animate-slide-in-bck-center"
 				/>
 			</div>
 			<SpNav />
