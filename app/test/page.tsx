@@ -31,7 +31,7 @@ export default function Home() {
 					<Image
 						src="/images/logo_black.png"
 						alt="profile"
-						width={480}
+						width={320}
 						height={320}
 						priority
 					/>
