@@ -25,7 +25,7 @@ export default function PageLayout({
 	const { isEnabled } = draftMode();
 	return (
 		<html lang="ja">
-			<body className={notoSansJP.className}>
+			<body className={`${notoSansJP.className} bg-[#fcfcfc]`}>
 				<div className="container mx-auto max-w-screen-lg mt-6 mb-6">
 					<div className="flex justify-center">
 						<Image
