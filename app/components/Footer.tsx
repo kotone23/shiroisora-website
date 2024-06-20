@@ -8,7 +8,7 @@ import {
 
 export default function Footer() {
 	return (
-		<footer className="bg-black text-white py-3 mt-4">
+		<footer className="bg-gray-950 text-white py-3 mt-4 border-t-4 border-gray-300">
 			<div className="container mx-auto max-w-screen-lg flex justify-center space-x-6">
 				<a href="https://twitter.com/" target="_blank" rel="noreferrer">
 					<FaXTwitter />

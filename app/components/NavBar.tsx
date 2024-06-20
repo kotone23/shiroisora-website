@@ -25,12 +25,12 @@ export default function NavBar() {
 	return (
 		<>
 			<div
-				className={`hidden sm:block border-t-4 border-b-4 border-black ${
+				className={`hidden sm:block border-t-2 border-b-2 border-gray-900 ${
 					isSticky ? "fixed top-0 w-full" : ""
 				}`}
 			>
-				<div className="border-t-4 border-b-4 border-white">
-					<div className="bg-black text-white py-4">
+				<div className="border-t-2 border-b-2 border-gray-300">
+					<div className="bg-gray-950/90 backdrop-blur-xs text-white py-3">
 						<nav className="container mx-auto max-w-screen-lg">
 							<ul className="flex justify-center space-x-16 w-full">
 								<li className="mx-2">
