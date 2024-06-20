@@ -9,7 +9,7 @@ export default function NavBar() {
 	// スクロールイベントハンドラ
 	const handleScroll = () => {
 		const scrollTop = window.scrollY;
-		setIsSticky(scrollTop > 250); // スクロール位置に応じて状態を更新
+		setIsSticky(scrollTop > 175); // スクロール位置に応じて状態を更新
 	};
 
 	// コンポーネントがマウントされた後にスクロールイベントリスナーを設定

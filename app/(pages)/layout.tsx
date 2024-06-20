@@ -26,13 +26,13 @@ export default function PageLayout({
 	return (
 		<html lang="ja">
 			<body className={notoSansJP.className}>
-				<div className="container mx-auto max-w-screen-lg mt-4">
+				<div className="container mx-auto max-w-screen-lg mt-6 mb-6">
 					<div className="flex justify-center">
 						<Image
-							src="/images/logo.png"
+							src="/images/logo_black.png"
 							alt="logo"
-							width={240}
-							height={240}
+							width={128}
+							height={128}
 							priority
 						/>
 					</div>
