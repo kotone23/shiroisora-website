@@ -27,7 +27,7 @@ export default function Home() {
 			<SpNav />
 			<NavBar />
 			<div className="flex justify-center items-center min-h-screen">
-				<div className="relative -top-0 animate-slide-in-bck-center">
+				<div className="animate-slide-in-bck-center">
 					<Image
 						src="/images/logo_black.png"
 						alt="logo"
