@@ -29,7 +29,7 @@ export default function PageLayout({
 				<div className="container mx-auto max-w-screen-lg mt-6 mb-6">
 					<div className="flex justify-center">
 						<Image
-							src="/images/logo_black.png"
+							src="/images/logo_slate.png"
 							alt="logo"
 							width={128}
 							height={128}

@@ -29,7 +29,7 @@ export default function Home() {
 			<div className="flex justify-center items-center min-h-screen">
 				<div className="animate-slide-in-bck-center shared-image">
 					<Image
-						src="/images/logo_black.png"
+						src="/images/logo_slate.png"
 						alt="logo"
 						width={128}
 						height={128}
