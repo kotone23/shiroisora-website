@@ -74,3 +74,17 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* .shared-image {
+  view-transition-name: shared-image;
+  contain: paint;
+} */
+
+.shared-nav {
+  view-transition-name: shared-nav;
+  contain: paint;
+}
+
+/* ::view-transition-group(shared-image) {
+  animation-duration: 0.5s;
+} */

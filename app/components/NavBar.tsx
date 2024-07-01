@@ -1,7 +1,8 @@
 "use client";
 import { useState, useEffect } from "react";
-import Link from "next/link";
+import { Link } from 'next-view-transitions'
 import { BsArrowUpRight } from "react-icons/bs";
+
 
 export default function NavBar() {
 	// ナビゲーションバーの固定状態を管理するステート
@@ -25,7 +26,7 @@ export default function NavBar() {
 	return (
 		<>
 			<div
-				className={`hidden sm:block border-t-2 border-b-2 border-gray-900 ${
+				className={`shared-nav hidden sm:block border-t-2 border-b-2 border-gray-900 ${
 					isSticky ? "fixed top-0 w-full" : ""
 				}`}
 			>
