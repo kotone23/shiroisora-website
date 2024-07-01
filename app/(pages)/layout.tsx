@@ -34,6 +34,7 @@ export default function PageLayout({
 							width={128}
 							height={128}
 							priority
+							className="shared-image"
 						/>
 					</div>
 				</div>
