@@ -3,19 +3,22 @@ import Link from "next/link";
 import { useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import { BsArrowUpRight } from "react-icons/bs";
+import { IconContext } from "react-icons";
 
 export default function SpNav() {
 	const [isOpen, setIsOpen] = useState(false);
 	return (
 		<>
-			<div className="block sm:hidden fixed top-0 left-0 m-4 bg-black px-4 py-3 text-white">
+			<div className="block sm:hidden fixed top-0 left-0 m-6 px-1.5 pt-2 py-1 bg-inherit/10 backdrop-blur-sm">
 				<button type="button" onClick={() => setIsOpen(!isOpen)}>
-					<AiOutlineMenu />
+					<IconContext.Provider value={{ size: "1.5em" }}>
+						<AiOutlineMenu />
+					</IconContext.Provider>
 				</button>
 			</div>
 			<nav
-				className={`fixed top-0 left-0 w-full h-full bg-black text-white z-50 flex flex-col justify-center items-center transition-transform duration-300 ${
-					isOpen ? "-translate-y-0" : "-translate-y-full"
+				className={`fixed top-0 left-0 w-full h-full bg-black text-white z-50 flex flex-col justify-center items-center transition-transform duration-500 ${
+					isOpen ? "-translate-y-0" : "-translate-y-[300%]"
 				}`}
 				onClick={() => setIsOpen(!isOpen)}
 			>

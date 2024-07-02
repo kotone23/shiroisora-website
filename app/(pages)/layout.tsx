@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 import { Murecho, Noto_Sans_JP } from "next/font/google";
 import { draftMode } from "next/headers";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from 'next-view-transitions'
 import "../globals.css";
 
 const notoSansJP = Noto_Sans_JP({ subsets: ["latin"] });
@@ -28,14 +28,16 @@ export default function PageLayout({
 			<body className={`${notoSansJP.className} bg-[#fcfcfc]`}>
 				<div className="container mx-auto max-w-screen-lg mt-6 mb-6">
 					<div className="flex justify-center">
-						<Image
-							src="/images/logo_slate.png"
-							alt="logo"
-							width={128}
-							height={128}
-							priority
-							className="shared-image"
-						/>
+						<Link href="/">
+							<Image
+								src="/images/logo_slate.png"
+								alt="logo"
+								width={128}
+								height={128}
+								priority
+								className="shared-image"
+							/>
+						</Link>
 					</div>
 				</div>
 				<SpNav />
