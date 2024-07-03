@@ -66,7 +66,7 @@ async function fetchGraphQL<T>(
 			// be revalidated or updated from Contentful on publish
 			next: {
 				tags: ["all"],
-				// revalidate: 300,
+				revalidate: 86400,
 			},
 		},
 	).then((response) => response.json());
