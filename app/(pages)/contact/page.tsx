@@ -2,8 +2,8 @@ import Inquiry from "@/app/components/Inquiry";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-	title: "WHITE SKY | Contact",
-	description: "WHITE SKY | Contact",
+	title: "シロイソラ | Contact",
+	description: "シロイソラ | Contact",
 };
 
 export default function ContactPage() {

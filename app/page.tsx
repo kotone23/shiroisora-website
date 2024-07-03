@@ -1,12 +1,6 @@
 import NavBar from "@/app/components/NavBar";
 import SpNav from "@/app/components/SpNav";
-import type { Metadata } from "next";
 import Image from "next/image";
-
-export const metadata: Metadata = {
-	title: "WHITE SKY",
-	description: "WHITE SKY",
-};
 
 export default function Home() {
 	return (

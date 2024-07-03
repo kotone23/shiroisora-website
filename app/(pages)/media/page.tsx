@@ -4,8 +4,8 @@ import type { Metadata } from "next";
 import { draftMode } from "next/headers";
 
 export const metadata: Metadata = {
-	title: "WHITE SKY | Media",
-	description: "WHITE SKY | Media",
+	title: "シロイソラ | Media",
+	description: "シロイソラ | Media",
 };
 
 export default async function MediaPage() {

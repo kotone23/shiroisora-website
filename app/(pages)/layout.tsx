@@ -1,21 +1,15 @@
 import Footer from "@/app/components/Footer";
 import NavBar from "@/app/components/NavBar";
 import SpNav from "@/app/components/SpNav";
-import type { Metadata } from "next";
+import { Link } from 'next-view-transitions'
 import { Murecho, Noto_Sans_JP } from "next/font/google";
 import { draftMode } from "next/headers";
 import Image from "next/image";
-import { Link } from 'next-view-transitions'
 import "../globals.css";
 
 const notoSansJP = Noto_Sans_JP({ subsets: ["latin"] });
 // const mPlus1c = M_PLUS_1({ subsets: ['latin'] })
 const murecho = Murecho({ subsets: ["latin"] });
-
-export const metadata: Metadata = {
-	title: "WHITE SKY",
-	description: "WHITE SKY",
-};
 
 export default function PageLayout({
 	children,

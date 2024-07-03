@@ -6,8 +6,8 @@ import Xtimeline from "../../components/Xtimeline";
 import type { Metadata } from 'next'
  
 export const metadata: Metadata = {
-  title: 'WHITE SKY | Biography',
-  description: 'WHITE SKY | Biography',
+  title: 'シロイソラ | Biography',
+  description: 'シロイソラ | Biography',
 }
 
 export default function Home() {
@@ -26,9 +26,6 @@ export default function Home() {
 			</div>
 			<div className="w-full mt-12 mb-2">
 				<h1 className="text-center text-xl">シロイソラ</h1>
-				<p className="text-center mt-2 text-muted-foreground text-sm italic">
-					A non-pop, shoegaze girls band
-				</p>
 				<BandMembers />
 			</div>
 
