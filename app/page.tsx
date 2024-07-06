@@ -7,7 +7,7 @@ export default function Home() {
 		<>
 			<div className="fixed h-screen w-screen top-0 -z-50">
 				<Image
-					alt="Mountains"
+					alt="white sky"
 					src="/images/background.jpg"
 					quality={100}
 					fill
