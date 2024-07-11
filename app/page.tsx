@@ -19,7 +19,7 @@ export default function Home() {
 				/>
 			</div>
 			<SpNav />
-			<NavBar />
+			<NavBar alwaysSticky={true}/>
 			<div className="flex justify-center items-center min-h-screen">
 				<div className="animate-slide-in-bck-center shared-image">
 					<Image

@@ -4,24 +4,28 @@ import { Link } from 'next-view-transitions'
 import { BsArrowUpRight } from "react-icons/bs";
 
 
-export default function NavBar() {
+export default function NavBar({ alwaysSticky = false }) {
 	// ナビゲーションバーの固定状態を管理するステート
-	const [isSticky, setIsSticky] = useState(false);
+	const [isSticky, setIsSticky] = useState(alwaysSticky);
 	// スクロールイベントハンドラ
 	const handleScroll = () => {
-		const scrollTop = window.scrollY;
-		setIsSticky(scrollTop > 175); // スクロール位置に応じて状態を更新
+		if (!alwaysSticky) {
+			const scrollTop = window.scrollY;
+			setIsSticky(scrollTop > 175); // スクロール位置に応じて状態を更新
+		}
 	};
 
 	// コンポーネントがマウントされた後にスクロールイベントリスナーを設定
 	useEffect(() => {
-		window.addEventListener("scroll", handleScroll);
+		if (!alwaysSticky) {
+			window.addEventListener("scroll", handleScroll);
+		}
 
 		// コンポーネントがアンマウントされる前にイベントリスナーを削除
 		return () => {
 			window.removeEventListener("scroll", handleScroll);
 		};
-	}, [handleScroll]);
+	}, [alwaysSticky, handleScroll]);
 
 	return (
 		<>
