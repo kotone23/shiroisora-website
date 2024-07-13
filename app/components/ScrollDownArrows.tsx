@@ -11,7 +11,7 @@ const ScrollDownArrows = () => {
     
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      if (currentScrollY > 50) {
+      if (currentScrollY > 20) {
         setIsVisible(false);
       } else {
         setIsVisible(true);
