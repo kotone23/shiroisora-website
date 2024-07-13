@@ -1,6 +1,9 @@
 import NavBar from "@/app/components/NavBar";
 import SpNav from "@/app/components/SpNav";
 import Image from "next/image";
+import MV from "./components/MV";
+import TopLogo from "./components/TopLogo";
+import ScrollDownArrows from "./components/ScrollDownArrows";
 
 export default function Home() {
 	return (
@@ -19,17 +22,11 @@ export default function Home() {
 				/>
 			</div>
 			<SpNav />
-			<NavBar alwaysSticky={true}/>
-			<div className="flex justify-center items-center min-h-screen">
-				<div className="animate-slide-in-bck-center shared-image">
-					<Image
-						src="/images/logo_slate.png"
-						alt="logo"
-						width={128}
-						height={128}
-						priority
-					/>
-				</div>
+			<NavBar />
+			<TopLogo />
+			<ScrollDownArrows />
+			<div className="container mx-auto min-h-[60vh] max-w-3xl h-auto mb-8">
+				<MV videoId="skV-C8aJOFs" />
 			</div>
 		</>
 	);
