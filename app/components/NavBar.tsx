@@ -1,39 +1,10 @@
-"use client";
-import { useState, useEffect } from "react";
-import { Link } from 'next-view-transitions'
+import { Link } from "next-view-transitions";
 import { BsArrowUpRight } from "react-icons/bs";
 
-
-export default function NavBar({ alwaysSticky = false }) {
-	// ナビゲーションバーの固定状態を管理するステート
-	const [isSticky, setIsSticky] = useState(alwaysSticky);
-	// スクロールイベントハンドラ
-	const handleScroll = () => {
-		if (!alwaysSticky) {
-			const scrollTop = window.scrollY;
-			setIsSticky(scrollTop > 175); // スクロール位置に応じて状態を更新
-		}
-	};
-
-	// コンポーネントがマウントされた後にスクロールイベントリスナーを設定
-	useEffect(() => {
-		if (!alwaysSticky) {
-			window.addEventListener("scroll", handleScroll);
-		}
-
-		// コンポーネントがアンマウントされる前にイベントリスナーを削除
-		return () => {
-			window.removeEventListener("scroll", handleScroll);
-		};
-	}, [alwaysSticky, handleScroll]);
-
+export default function NavBar() {
 	return (
 		<>
-			<div
-				className={`shared-nav hidden sm:block border-t-2 border-b-2 border-gray-900 ${
-					isSticky ? "fixed top-0 w-full" : ""
-				}`}
-			>
+			<div className="shared-nav hidden lg:block z-20 border-t-2 border-b-2 border-gray-900 sticky top-0 w-full">
 				<div className="border-t-2 border-b-2 border-gray-300">
 					<div className="bg-gray-950/90 backdrop-blur-xs text-white py-3">
 						<nav className="container mx-auto max-w-screen-lg">
@@ -80,7 +51,6 @@ export default function NavBar({ alwaysSticky = false }) {
 					</div>
 				</div>
 			</div>
-			<div className={`h-[72px] ${isSticky ? "hidden sm:block" : "hidden"}`} />
 		</>
 	);
 }
