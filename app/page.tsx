@@ -25,7 +25,7 @@ export default function Home() {
 			<NavBar />
 			<TopLogo />
 			<ScrollDownArrows />
-			<div className="container mx-auto min-h-[60vh] max-w-3xl h-auto mb-8">
+			<div className="container mx-auto min-h-[60vh] max-w-xl lg:max-w-3xl h-auto mb-10">
 				<MV videoId="skV-C8aJOFs" />
 			</div>
 		</>
