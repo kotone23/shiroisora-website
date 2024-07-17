@@ -42,3 +42,16 @@ export function formatDateWithWeekday(input: string): string {
 	// 日付と曜日を組み合わせて返す
 	return `${formattedDate}(${formattedWeekday})`;
 }
+
+// 与えられた時間が今日以前の日かどうかを判定する
+export function isPastLive(dateString: string) {
+  const japanTimeZone = 'Asia/Tokyo';
+  const liveDate = new Date(dateString); // live date is provided in UTC 00:00
+  const liveDateJapan = new Date(liveDate.toLocaleString('en-US', { timeZone: japanTimeZone })); // convert to Japan time 09:00
+  const nowJapan = new Date(new Date().toLocaleString('en-US', { timeZone: japanTimeZone }));
+  
+  liveDateJapan.setHours(0, 0, 0, 0);
+  nowJapan.setHours(0, 0, 0, 0);
+  
+  return liveDateJapan < nowJapan;
+}

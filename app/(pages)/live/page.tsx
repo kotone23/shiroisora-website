@@ -1,7 +1,8 @@
 import LiveEntry from "@/app/components/LiveEntry";
 import { getLiveContents } from "@/lib/cms";
-import { draftMode } from "next/headers";
+import { isPastLive } from "@/lib/utils";
 import type { Metadata } from 'next'
+import { draftMode } from "next/headers";
  
 export const metadata: Metadata = {
   title: 'シロイソラ | Live',
@@ -12,30 +13,17 @@ export const metadata: Metadata = {
 export default async function LivePage() {
 	const { isEnabled } = draftMode();
 	const contents = await getLiveContents(isEnabled);
-	const now = new Date();
-	const futureLives = contents.filter(
-		(content) => new Date(content.date) > new Date(),
-	);
+	const futureLives = contents.filter(content => !isPastLive(content.date)).reverse();
 
 	return (
 		<div className="container max-w-screen-lg mx-auto px-4">
 			<h1 className="flex justify-center text-4xl font-bold mt-8 mb-8">Live</h1>
 			{futureLives.length > 0 ? (
-				contents
-					.filter((content) => new Date(content.date) > now)
-					.map((content) => (
+				futureLives
+					.map((live) => (
 						<LiveEntry
-							key={content.sys.id}
-							title={content.title}
-							venue={content.venue}
-							time={content.time}
-							charge={content.charge}
-							performers={content.performers}
-							date={content.date}
-							description={content.description}
-							setlistCollection={content.setlistCollection}
-							encore={content.encore}
-							imagesCollection={content.imagesCollection}
+							key={live.sys.id}
+							{...live}
 						/>
 					))
 			) : (
@@ -49,20 +37,11 @@ export default async function LivePage() {
 			</h2>
 
 			{contents
-				.filter((content) => new Date(content.date) < now)
-				.map((content) => (
+				.filter((live) => isPastLive(live.date))
+				.map((live) => (
 					<LiveEntry
-						key={content.sys.id}
-						title={content.title}
-						venue={content.venue}
-						time={content.time}
-						charge={content.charge}
-						performers={content.performers}
-						date={content.date}
-						description={content.description}
-						setlistCollection={content.setlistCollection}
-						encore={content.encore}
-						imagesCollection={content.imagesCollection}
+						key={live.sys.id}
+						{...live}
 					/>
 				))}
 		</div>

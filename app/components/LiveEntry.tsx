@@ -3,19 +3,12 @@ import { MdPeopleAlt } from "react-icons/md";
 import { FaRegClock, FaYenSign, FaItunesNote } from "react-icons/fa6";
 import ImageDialog from "../components/ui/imagedialog";
 import MyMarkdown from "./MyMarkdown";
-import { formatDate } from "@/lib/utils";
+import { formatDate, isPastLive } from "@/lib/utils";
 import type { Live } from "@/lib/types";
 
-type ContentProps = Omit<Live, "sys">;
+type LiveProps = Omit<Live, "sys">;
 
-function isDateBeforeNow(dateStr: string) {
-	// dateがnowより前ならtrue、そうでなければfalseを返す
-	const now = new Date();
-	const date = new Date(dateStr);
-	return date < now;
-}
-
-const LiveEntry: React.FC<ContentProps> = ({
+const LiveEntry: React.FC<LiveProps> = ({
 	title,
 	venue,
 	date,
@@ -67,7 +60,7 @@ const LiveEntry: React.FC<ContentProps> = ({
 							<p className="flex-grow min-w-0">{time}</p>
 						</div>
 					)}
-					{!isDateBeforeNow(date) && (
+					{!isPastLive(date) && charge && (
 						<div className="flex items-start gap-3">
 							<FaYenSign className="flex-shrink-0 mt-1.5" />
 							<p className="flex-grow min-w-0">{charge}</p>
@@ -79,7 +72,7 @@ const LiveEntry: React.FC<ContentProps> = ({
 							<p className="flex-grow min-w-0">{performers}</p>
 						</div>
 					)}
-					{isDateBeforeNow(date) && setlistCollection.items.length > 0 && (
+					{isPastLive(date) && setlistCollection.items.length > 0 && (
 						<div className="flex items-start gap-3">
 							<FaItunesNote className="flex-shrink-0 mt-1.5" />
 							<p className="flex-grow min-w-0">{setlistString}</p>
