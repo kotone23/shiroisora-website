@@ -1,4 +1,4 @@
-import type { Media, Live } from "./types";
+import type { Live, Media, Release } from "./types";
 
 interface GraphQLResponse<T> {
 	data: T;
@@ -43,42 +43,84 @@ const LIVE_GRAPHQL_FIELDS = `
   }
 `;
 
+const RELEASE_GRAPHQL_FIELDS = `
+  sys {
+    id
+  }
+  title
+  releaseType
+  releaseDate
+  price
+  spotifyLink
+  appleMusicLink
+  coverImage {
+    sys {
+      id
+    }
+    title
+    url
+  }
+  songCollection (limit: 20) {
+    items {
+      sys {
+        id
+      }
+      title
+      lyrics
+      spotifyLink
+      appleMusicLink
+      youTubeLink
+    }
+  }
+  description
+`;
+
 async function fetchGraphQL<T>(
-	query: string,
-	preview = false,
+  query: string,
+  preview = false,
 ): Promise<GraphQLResponse<T>> {
-	return fetch(
-		`https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}`,
-		{
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-				// Switch the Bearer token depending on whether the fetch is supposed to retrieve live
-				// Contentful content or draft content
-				Authorization: `Bearer ${
-					preview
-						? process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN
-						: process.env.CONTENTFUL_ACCESS_TOKEN
-				}`,
-			},
-			body: JSON.stringify({ query }),
-			// Associate all fetches for articles with a cache tag so content can
-			// be revalidated or updated from Contentful on publish
-			next: {
-				tags: ["all"],
-				revalidate: 86400,
-			},
-		},
-	).then((response) => response.json());
+  try {
+    const response = await fetch(
+      `https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${
+            preview
+              ? process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN
+              : process.env.CONTENTFUL_ACCESS_TOKEN
+          }`,
+        },
+        body: JSON.stringify({ query }),
+        next: {
+          tags: ["all"],
+          revalidate: 86400,
+        },
+      },
+    );
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      console.error('GraphQL API error:', errorData);
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    return response.json();
+  } catch (error) {
+    console.error('Error fetching GraphQL:', error);
+    throw error;
+  }
 }
 
 export async function getContents<T>(
 	collectionName: string,
 	fields: string,
 	isDraftMode = false,
+	order = "date",
 ): Promise<T[]> {
 	const query = `query {
-    ${collectionName}(order:date_DESC preview: ${isDraftMode ? "true" : "false"}) {
+    ${collectionName}(order:${order}_DESC preview: ${isDraftMode ? "true" : "false"}) {
       items {
         ${fields}
       }
@@ -106,4 +148,13 @@ export async function getLiveContents(isDraftMode = false) {
 		LIVE_GRAPHQL_FIELDS,
 		isDraftMode,
 	);
+}
+
+export async function getReleaseContents(isDraftMode = false) {
+  return await getContents<Release>(
+    "releaseCollection",
+    RELEASE_GRAPHQL_FIELDS,
+    isDraftMode,
+    "releaseDate",
+  );
 }

@@ -20,6 +20,9 @@ export interface Song {
 	};
 	title: string;
 	lyrics: string | null;
+	spotifyLink: URL | null;
+	appleMusicLink: URL | null;
+	youTubeLink: URL | null;
 }
 
 export interface Live {
@@ -55,4 +58,9 @@ export interface Release {
 	songCollection: {
 		items: Song[];
 	};
+	price: string | null;
+	spotifyLink: URL | null;
+	appleMusicLink: URL | null;
+	description: string | null;
+	coverImage: Image | null;
 }

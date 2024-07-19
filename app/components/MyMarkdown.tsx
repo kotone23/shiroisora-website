@@ -32,7 +32,7 @@ const MyMarkdown = ({ markdown }: { markdown: string }) => {
 				} as Components
 			}
 		>
-			{markdown}
+			{markdown.replace(/\n\n/gi, "\n &nbsp; \n")} 
 		</ReactMarkdown>
 	);
 };

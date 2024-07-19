@@ -43,6 +43,17 @@ export function formatDateWithWeekday(input: string): string {
 	return `${formattedDate}(${formattedWeekday})`;
 }
 
+export function formatDateInEnglish(input: string): string {
+	const date = new Date(input);
+	const options: Intl.DateTimeFormatOptions = {
+		year: "numeric",
+		month: "short",
+		day: "numeric",
+	};
+	const formatter = new Intl.DateTimeFormat("en-US", options);
+	return formatter.format(date).replace(/^(\w{3})/, '$1.');
+}
+
 // 与えられた時間が今日以前の日かどうかを判定する
 export function isPastLive(dateString: string) {
   const japanTimeZone = 'Asia/Tokyo';
