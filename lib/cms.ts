@@ -77,6 +77,7 @@ const RELEASE_GRAPHQL_FIELDS = `
 
 async function fetchGraphQL<T>(
   query: string,
+  tags: string[],
   preview = false,
 ): Promise<GraphQLResponse<T>> {
   try {
@@ -94,7 +95,7 @@ async function fetchGraphQL<T>(
         },
         body: JSON.stringify({ query }),
         next: {
-          tags: ["all"],
+          tags: tags,
           revalidate: 86400,
         },
       },
@@ -116,6 +117,7 @@ async function fetchGraphQL<T>(
 export async function getContents<T>(
 	collectionName: string,
 	fields: string,
+  tags: string[],
 	isDraftMode = false,
 	order = "date",
 ): Promise<T[]> {
@@ -129,6 +131,7 @@ export async function getContents<T>(
 
 	const res = await fetchGraphQL<{ [key: string]: { items: T[] } }>(
 		query,
+    tags,
 		isDraftMode,
 	);
 	return res?.data?.[collectionName]?.items;
@@ -138,6 +141,7 @@ export async function getMediaContents(isDraftMode = false) {
 	return await getContents<Media>(
 		"mediaCollection",
 		MEDIA_GRAPHQL_FIELDS,
+    ["media"],
 		isDraftMode,
 	);
 }
@@ -146,6 +150,7 @@ export async function getLiveContents(isDraftMode = false) {
 	return await getContents<Live>(
 		"liveCollection",
 		LIVE_GRAPHQL_FIELDS,
+    ["live"],
 		isDraftMode,
 	);
 }
@@ -154,6 +159,7 @@ export async function getReleaseContents(isDraftMode = false) {
   return await getContents<Release>(
     "releaseCollection",
     RELEASE_GRAPHQL_FIELDS,
+    ["release", "song"],
     isDraftMode,
     "releaseDate",
   );
