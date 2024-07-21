@@ -44,8 +44,8 @@ const LiveEntry: React.FC<LiveProps> = ({
 			</div>
 			<div className="md:w-5/6 md:pl-4">
 				<h3 className="text-lg font-bold">{title}</h3>
-				{!venue.url ? (
-					<p className="text-muted-foreground mb-4">{venue.name}</p>
+				{!venue?.url ? (
+					<p className="text-muted-foreground mb-4">{venue?.name}</p>
 				) : (
 					<p className="text-muted-foreground mb-4 underline">
 						<a href={`${venue.url}`} rel="noreferrer" target="_blank">
