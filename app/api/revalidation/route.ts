@@ -9,7 +9,7 @@ type ContentfulTagObject = {
 	}
 };
 type ContentfulRequestBody = {
-	metadata: {
+	metadata?: {
 		tags?: ContentfulTagObject[];
 	}
 	sys: {
@@ -33,12 +33,14 @@ export async function POST(request: NextRequest) {
 
 	// if metadata.tags includes any tag, revalidate the tags
 	const body: ContentfulRequestBody = await request.json();
-	if (body.metadata.tags?.length) {
+	if (body.metadata?.tags?.length) {
+		const tags = [];
 		for (const tagObject of body.metadata.tags) {
 			const tag = tagObject.sys.id;
+			tags.push(tag);
 			revalidateTag(tag);
 		}	
-		return NextResponse.json({ revalidated: true, updatedType: body.metadata.tags });
+		return NextResponse.json({ revalidated: true, updatedType: tags });
 	}
 
 	// if not entry is updated, no revalidation is needed
