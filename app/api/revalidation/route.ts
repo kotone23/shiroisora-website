@@ -1,12 +1,16 @@
+import { revalidateTag } from "next/cache";
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
-import { revalidateTag } from "next/cache";
 
 type ContentfulEntryType = "live" | "media" | "release" | "liveMusicClub" | "song";
-
+type ContentfulTagObject = {
+	sys: {
+		id: ContentfulEntryType
+	}
+};
 type ContentfulRequestBody = {
 	metadata: {
-		tags?: ContentfulEntryType[];
+		tags?: ContentfulTagObject[];
 	}
 	sys: {
 		type: "Entry" | "Asset" | "ContentType";
@@ -30,7 +34,8 @@ export async function POST(request: NextRequest) {
 	// if metadata.tags includes any tag, revalidate the tags
 	const body: ContentfulRequestBody = await request.json();
 	if (body.metadata.tags?.length) {
-		for (const tag of body.metadata.tags) {
+		for (const tagObject of body.metadata.tags) {
+			const tag = tagObject.sys.id;
 			revalidateTag(tag);
 		}	
 		return NextResponse.json({ revalidated: true, updatedType: body.metadata.tags });
