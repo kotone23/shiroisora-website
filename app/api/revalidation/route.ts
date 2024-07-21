@@ -13,7 +13,7 @@ type ContentfulRequestBody = {
 		tags?: ContentfulTagObject[];
 	}
 	sys: {
-		type: "Entry" | "Asset" | "ContentType";
+		type: "Entry" | "Asset" | "ContentType" | "DeletedEntry" | "DeletedAsset";
 		id: string;
 		contentType?: {
 			sys: {
@@ -42,7 +42,7 @@ export async function POST(request: NextRequest) {
 	}
 
 	// if not entry is updated, no revalidation is needed
-	if (body.sys.type !== "Entry") {
+	if (body.sys.type !== "Entry" && body.sys.type !== "DeletedEntry") {
 		return NextResponse.json({ revalidated: false, updatedType: body.sys.type });
 	} 
 	
