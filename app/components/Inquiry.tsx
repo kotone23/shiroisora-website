@@ -49,7 +49,7 @@ export default function Inquiry() {
 		}
 	}, [result, toast]);
 	return (
-    <div>
+		<div>
 			<div className="flex flex-col">
 				<form
 					id={form.id}

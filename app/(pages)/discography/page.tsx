@@ -17,12 +17,9 @@ export default async function DiscographyPage() {
 			<h1 className="text-4xl font-bold mt-2 mb-8">Discography</h1>
 			<section className="grid grid-cols-1 gap-4 md:gap-6 xl:gap-8">
 				{contents.map((release) => (
-					<ReleaseEntry
-						key={release.sys.id}
-						{...release}
-					/>
+					<ReleaseEntry key={release.sys.id} {...release} />
 				))}
 			</section>
 		</main>
-	)
+	);
 }

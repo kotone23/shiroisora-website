@@ -1,11 +1,11 @@
 import Image from "next/image";
 import BandMembers from "../../components/Profile";
-import type { Metadata } from 'next'
- 
+import type { Metadata } from "next";
+
 export const metadata: Metadata = {
-  title: 'シロイソラ | Biography',
-  description: 'シロイソラ | Biography',
-}
+	title: "シロイソラ | Biography",
+	description: "シロイソラ | Biography",
+};
 
 export default function Home() {
 	return (

@@ -1,7 +1,7 @@
 import Footer from "@/app/components/Footer";
 import NavBar from "@/app/components/NavBar";
 import SpNav from "@/app/components/SpNav";
-import { Link } from 'next-view-transitions'
+import { Link } from "next-view-transitions";
 import { Murecho, Noto_Sans_JP } from "next/font/google";
 import { draftMode } from "next/headers";
 import Image from "next/image";

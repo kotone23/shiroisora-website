@@ -76,55 +76,57 @@ const RELEASE_GRAPHQL_FIELDS = `
 `;
 
 async function fetchGraphQL<T>(
-  query: string,
-  tags: string[],
-  revalidate: number,
-  preview = false,
+	query: string,
+	tags: string[],
+	revalidate: number,
+	preview = false,
 ): Promise<GraphQLResponse<T>> {
-  try {
-    const response = await fetch(
-      `https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${
-            preview
-              ? process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN
-              : process.env.CONTENTFUL_ACCESS_TOKEN
-          }`,
-        },
-        body: JSON.stringify({ query }),
-        next: {
-          tags: tags,
-          revalidate: revalidate,
-        },
-      },
-    );
+	try {
+		const response = await fetch(
+			`https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}`,
+			{
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+					Authorization: `Bearer ${
+						preview
+							? process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN
+							: process.env.CONTENTFUL_ACCESS_TOKEN
+					}`,
+				},
+				body: JSON.stringify({ query }),
+				next: {
+					tags: tags,
+					revalidate: revalidate,
+				},
+			},
+		);
 
-    if (!response.ok) {
-      const errorData = await response.json();
-      console.error('GraphQL API error:', errorData);
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
+		if (!response.ok) {
+			const errorData = await response.json();
+			console.error("GraphQL API error:", errorData);
+			throw new Error(`HTTP error! status: ${response.status}`);
+		}
 
-    return response.json();
-  } catch (error) {
-    console.error('Error fetching GraphQL:', error);
-    throw error;
-  }
+		return response.json();
+	} catch (error) {
+		console.error("Error fetching GraphQL:", error);
+		throw error;
+	}
 }
 
 export async function getContents<T>(
 	collectionName: string,
 	fields: string,
-  tags: string[],
-  revalidate = 60*60*24*30,
+	tags: string[],
+	revalidate = 60 * 60 * 24 * 30,
 	isDraftMode = false,
 	order = "date",
 ): Promise<T[]> {
 	const query = `query {
-    ${collectionName}(order:${order}_DESC preview: ${isDraftMode ? "true" : "false"}) {
+    ${collectionName}(order:${order}_DESC preview: ${
+			isDraftMode ? "true" : "false"
+		}) {
       items {
         ${fields}
       }
@@ -133,8 +135,8 @@ export async function getContents<T>(
 
 	const res = await fetchGraphQL<{ [key: string]: { items: T[] } }>(
 		query,
-    tags,
-    revalidate,
+		tags,
+		revalidate,
 		isDraftMode,
 	);
 	return res?.data?.[collectionName]?.items;
@@ -144,8 +146,8 @@ export async function getMediaContents(isDraftMode = false) {
 	return await getContents<Media>(
 		"mediaCollection",
 		MEDIA_GRAPHQL_FIELDS,
-    ["media"],
-    60*60*24*30,
+		["media"],
+		60 * 60 * 24 * 30,
 		isDraftMode,
 	);
 }
@@ -154,19 +156,19 @@ export async function getLiveContents(isDraftMode = false) {
 	return await getContents<Live>(
 		"liveCollection",
 		LIVE_GRAPHQL_FIELDS,
-    ["live"],
-    60*60*24,
+		["live"],
+		60 * 60 * 24,
 		isDraftMode,
 	);
 }
 
 export async function getReleaseContents(isDraftMode = false) {
-  return await getContents<Release>(
-    "releaseCollection",
-    RELEASE_GRAPHQL_FIELDS,
-    ["release", "song"],
-    60*60*24*30,
-    isDraftMode,
-    "releaseDate",
-  );
+	return await getContents<Release>(
+		"releaseCollection",
+		RELEASE_GRAPHQL_FIELDS,
+		["release", "song"],
+		60 * 60 * 24 * 30,
+		isDraftMode,
+		"releaseDate",
+	);
 }

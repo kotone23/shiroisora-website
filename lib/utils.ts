@@ -51,18 +51,22 @@ export function formatDateInEnglish(input: string): string {
 		day: "numeric",
 	};
 	const formatter = new Intl.DateTimeFormat("en-US", options);
-	return formatter.format(date).replace(/^(\w{3})/, '$1.');
+	return formatter.format(date).replace(/^(\w{3})/, "$1.");
 }
 
 // 与えられた時間が今日以前の日かどうかを判定する
 export function isPastLive(dateString: string) {
-  const japanTimeZone = 'Asia/Tokyo';
-  const liveDate = new Date(dateString); // live date is provided in UTC 00:00
-  const liveDateJapan = new Date(liveDate.toLocaleString('en-US', { timeZone: japanTimeZone })); // convert to Japan time 09:00
-  const nowJapan = new Date(new Date().toLocaleString('en-US', { timeZone: japanTimeZone }));
-  
-  liveDateJapan.setHours(0, 0, 0, 0);
-  nowJapan.setHours(0, 0, 0, 0);
-  
-  return liveDateJapan < nowJapan;
+	const japanTimeZone = "Asia/Tokyo";
+	const liveDate = new Date(dateString); // live date is provided in UTC 00:00
+	const liveDateJapan = new Date(
+		liveDate.toLocaleString("en-US", { timeZone: japanTimeZone }),
+	); // convert to Japan time 09:00
+	const nowJapan = new Date(
+		new Date().toLocaleString("en-US", { timeZone: japanTimeZone }),
+	);
+
+	liveDateJapan.setHours(0, 0, 0, 0);
+	nowJapan.setHours(0, 0, 0, 0);
+
+	return liveDateJapan < nowJapan;
 }

@@ -18,11 +18,7 @@ export default async function MediaPage() {
 				Media
 			</h1>
 			{contents.map((content) => (
-				<MediaEntry
-					key={content.sys.id}
-					date={content.date}
-					description={content.description}
-				/>
+				<MediaEntry key={content.sys.id} {...content} />
 			))}
 		</div>
 	);

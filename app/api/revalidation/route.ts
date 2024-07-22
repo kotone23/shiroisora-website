@@ -2,16 +2,21 @@ import { revalidateTag } from "next/cache";
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 
-type ContentfulEntryType = "live" | "media" | "release" | "liveMusicClub" | "song";
+type ContentfulEntryType =
+	| "live"
+	| "media"
+	| "release"
+	| "liveMusicClub"
+	| "song";
 type ContentfulTagObject = {
 	sys: {
-		id: ContentfulEntryType
-	}
+		id: ContentfulEntryType;
+	};
 };
 type ContentfulRequestBody = {
 	metadata?: {
 		tags?: ContentfulTagObject[];
-	}
+	};
 	sys: {
 		type: "Entry" | "Asset" | "ContentType" | "DeletedEntry" | "DeletedAsset";
 		id: string;
@@ -39,20 +44,23 @@ export async function POST(request: NextRequest) {
 			const tag = tagObject.sys.id;
 			tags.push(tag);
 			revalidateTag(tag);
-		}	
+		}
 		return NextResponse.json({ revalidated: true, updatedType: tags });
 	}
 
 	// if not entry is updated, no revalidation is needed
 	if (body.sys.type !== "Entry" && body.sys.type !== "DeletedEntry") {
-		return NextResponse.json({ revalidated: false, updatedType: body.sys.type });
-	} 
-	
+		return NextResponse.json({
+			revalidated: false,
+			updatedType: body.sys.type,
+		});
+	}
+
 	const contentType = body.sys.contentType?.sys.id;
 	if (!contentType) {
 		return NextResponse.json({ revalidated: false, updatedType: "unknown" });
-	} 
+	}
 	revalidateTag(contentType);
 
-	return NextResponse.json({ revalidated: true, updatedType: contentType});
+	return NextResponse.json({ revalidated: true, updatedType: contentType });
 }

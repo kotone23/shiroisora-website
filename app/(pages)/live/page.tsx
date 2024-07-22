@@ -1,31 +1,26 @@
 import LiveEntry from "@/app/components/LiveEntry";
 import { getLiveContents } from "@/lib/cms";
 import { isPastLive } from "@/lib/utils";
-import type { Metadata } from 'next'
+import type { Metadata } from "next";
 import { draftMode } from "next/headers";
- 
-export const metadata: Metadata = {
-  title: 'シロイソラ | Live',
-  description: 'シロイソラ | Live',
-}
 
+export const metadata: Metadata = {
+	title: "シロイソラ | Live",
+	description: "シロイソラ | Live",
+};
 
 export default async function LivePage() {
 	const { isEnabled } = draftMode();
 	const contents = await getLiveContents(isEnabled);
-	const futureLives = contents.filter(content => !isPastLive(content.date)).reverse();
+	const futureLives = contents
+		.filter((content) => !isPastLive(content.date))
+		.reverse();
 
 	return (
 		<div className="container max-w-screen-lg mx-auto px-4">
 			<h1 className="flex justify-center text-4xl font-bold mt-8 mb-8">Live</h1>
 			{futureLives.length > 0 ? (
-				futureLives
-					.map((live) => (
-						<LiveEntry
-							key={live.sys.id}
-							{...live}
-						/>
-					))
+				futureLives.map((live) => <LiveEntry key={live.sys.id} {...live} />)
 			) : (
 				<p className="flex justify-center mt-10 mb-16">
 					今後のライブは予定が決まり次第お知らせいたします
@@ -39,10 +34,7 @@ export default async function LivePage() {
 			{contents
 				.filter((live) => isPastLive(live.date))
 				.map((live) => (
-					<LiveEntry
-						key={live.sys.id}
-						{...live}
-					/>
+					<LiveEntry key={live.sys.id} {...live} />
 				))}
 		</div>
 	);
