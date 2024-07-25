@@ -2,6 +2,7 @@ import Favicon from "@/public/images/favicon.ico";
 import type { Metadata } from "next";
 import { ViewTransitions } from "next-view-transitions";
 import "./globals.css";
+import { TWITTER_NAME } from "@/lib/band-metadata";
 
 export const metadata: Metadata = {
 	metadataBase: new URL(`https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`),
@@ -20,6 +21,9 @@ export const metadata: Metadata = {
 		type: "website",
 		locale: "ja_JP",
 		images: "/images/profile.jpg",
+	},
+	twitter: {
+		site: `@${TWITTER_NAME}`,
 	},
 };
 

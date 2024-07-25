@@ -2,6 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
+import { BOOTH_URL } from "@/lib/band-metadata";
 
 export default function SpNav() {
 	const [isOpen, setIsOpen] = useState(false);
@@ -47,7 +48,7 @@ export default function SpNav() {
 					<li className="my-5">
 						<span className="flex items-center after:ml-0.5 after:content-['↗']">
 							<a
-								href="https://shiroisora.booth.pm/"
+								href={BOOTH_URL}
 								target="_blank"
 								rel="noreferrer"
 								className="hover:underline"

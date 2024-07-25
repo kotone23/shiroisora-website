@@ -4,6 +4,7 @@ import Image from "next/image";
 import MV from "./components/MV";
 import TopLogo from "./components/TopLogo";
 import ScrollDownArrows from "./components/ScrollDownArrows";
+import { YOUTUBE_MV_ID } from "@/lib/band-metadata";
 
 export default function Home() {
 	return (
@@ -26,7 +27,7 @@ export default function Home() {
 			<TopLogo />
 			<ScrollDownArrows />
 			<div className="container mx-auto min-h-[60vh] max-w-xl lg:max-w-3xl h-auto mb-10">
-				<MV videoId="skV-C8aJOFs" />
+				<MV videoId={YOUTUBE_MV_ID} />
 			</div>
 		</>
 	);

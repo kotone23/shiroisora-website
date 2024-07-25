@@ -1,4 +1,5 @@
 import { Link } from "next-view-transitions";
+import { BOOTH_URL } from "@/lib/band-metadata";
 
 export default function NavBar() {
 	return (
@@ -29,7 +30,7 @@ export default function NavBar() {
 						<li className="mx-2">
 							<span className="flex items-center after:ml-0.5 after:content-['↗']">
 								<a
-									href="https://shiroisora.booth.pm/"
+									href={BOOTH_URL}
 									target="_blank"
 									rel="noreferrer"
 									className="hover:underline"
