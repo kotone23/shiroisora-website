@@ -61,7 +61,7 @@ export default function Footer() {
 							privacy policy
 						</p>
 					</DialogTrigger>
-					<DialogContent className="rounded-none">
+					<DialogContent className="rounded-none w-11/12 max-w-xl">
 						<DialogHeader>
 							<DialogTitle>プライバシーポリシー</DialogTitle>
 							<DialogDescription>

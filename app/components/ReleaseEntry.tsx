@@ -62,7 +62,7 @@ const SongEntry: React.FC<SongWithIndex> = ({
 							</TooltipProvider>
 						</DialogTrigger>
 					</span>
-					<DialogContent className="max-h-full w-10/12 max-w-xl rounded-lg">
+					<DialogContent className="max-h-full w-10/12 max-w-xl rounded md:rounded-lg">
 						<DialogHeader>
 							<DialogTitle>{title}</DialogTitle>
 						</DialogHeader>
@@ -121,7 +121,7 @@ export const ReleaseEntry: React.FC<ReleaseProps> = ({
 }) => {
 	const coverImageUrl = coverImage?.url.toString() ?? "/placeholder.svg";
 	return (
-		<Card className="w-lg max-w-xl p-6">
+		<Card className="max-w-xl p-6">
 			<CardHeader className="grid gap-1 text-center space-y-0 p-0">
 				<CardTitle className="text-lg">{title}</CardTitle>
 				<CardDescription className="text-xs">
