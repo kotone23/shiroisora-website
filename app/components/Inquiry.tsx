@@ -49,7 +49,7 @@ export default function Inquiry() {
 		}
 	}, [result, toast]);
 	return (
-		<div>
+		<>
 			<div className="flex flex-col">
 				<form
 					id={form.id}
@@ -127,6 +127,6 @@ export default function Inquiry() {
 				</form>
 			</div>
 			<Toaster />
-		</div>
+		</>
 	);
 }

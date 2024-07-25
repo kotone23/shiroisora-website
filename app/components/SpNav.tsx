@@ -2,7 +2,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-import { BsArrowUpRight } from "react-icons/bs";
 
 export default function SpNav() {
 	const [isOpen, setIsOpen] = useState(false);
@@ -10,7 +9,12 @@ export default function SpNav() {
 		<>
 			<div className="block lg:hidden fixed top-0 left-0 m-6 px-1.5 pt-2 py-1 bg-inherit/10 backdrop-blur-sm">
 				<button type="button" onClick={() => setIsOpen(!isOpen)}>
-					<Image src="/humberger.svg" alt="humberger menu" width={24} height={24} />
+					<Image
+						src="/humberger.svg"
+						alt="humberger menu"
+						width={24}
+						height={24}
+					/>
 				</button>
 			</div>
 			<nav
@@ -41,11 +45,16 @@ export default function SpNav() {
 						</Link>
 					</li>
 					<li className="my-5">
-						<Link href="/#shop" className="hover:underline">
-							<span className="flex items-center">
-								Shop <BsArrowUpRight className="ml-0.5" />
-							</span>
-						</Link>
+						<span className="flex items-center after:ml-0.5 after:content-['↗']">
+							<a
+								href="https://shiroisora.booth.pm/"
+								target="_blank"
+								rel="noreferrer"
+								className="hover:underline"
+							>
+								Shop
+							</a>
+						</span>
 					</li>
 					<li className="my-5">
 						<Link href="/media" className="hover:underline">

@@ -5,6 +5,7 @@ export function cn(...inputs: ClassValue[]) {
 	return twMerge(clsx(inputs));
 }
 
+// convert to YYYY年MM月DD日 format
 export function formatDate(input: string): string {
 	const date = new Date(input);
 	const options: Intl.DateTimeFormatOptions = {
@@ -17,6 +18,7 @@ export function formatDate(input: string): string {
 	return formatter.format(date);
 }
 
+// convert to YYYY年MM月DD日(曜日) format
 export function formatDateWithWeekday(input: string): string {
 	const date = new Date(input);
 	// 年月日のフォーマット設定
@@ -43,6 +45,7 @@ export function formatDateWithWeekday(input: string): string {
 	return `${formattedDate}(${formattedWeekday})`;
 }
 
+// convert to "DD MMM, YYYY" format
 export function formatDateInEnglish(input: string): string {
 	const date = new Date(input);
 	const options: Intl.DateTimeFormatOptions = {
@@ -52,6 +55,15 @@ export function formatDateInEnglish(input: string): string {
 	};
 	const formatter = new Intl.DateTimeFormat("en-US", options);
 	return formatter.format(date).replace(/^(\w{3})/, "$1.");
+}
+
+// convert to "YYYY-MM-DD" format
+export function formatDateForDateTime(input: string): string {
+	const date = new Date(input);
+	const year = date.getFullYear();
+	const month = String(date.getMonth() + 1).padStart(2, '0');
+	const day = String(date.getDate()).padStart(2, '0');
+	return `${year}-${month}-${day}`;
 }
 
 // 与えられた時間が今日以前の日かどうかを判定する

@@ -1,5 +1,5 @@
 import type { Live } from "@/lib/types";
-import { formatDate, isPastLive } from "@/lib/utils";
+import { formatDate, formatDateForDateTime, isPastLive } from "@/lib/utils";
 import type React from "react";
 import { FaItunesNote, FaRegClock, FaYenSign } from "react-icons/fa6";
 import { MdPeopleAlt } from "react-icons/md";
@@ -38,9 +38,9 @@ const LiveEntry: React.FC<LiveProps> = ({
 		.join("　");
 
 	return (
-		<div className="border-t py-4 md:flex">
+		<article className="border-t py-4 md:flex">
 			<div className="text-muted-foreground md:w-1/6 md:px-4 md:mt-0.5">
-				{formatDate(date)}
+				<time dateTime={formatDateForDateTime(date)}>{formatDate(date)}</time>
 			</div>
 			<div className="md:w-5/6 md:pl-4">
 				<h3 className="text-lg font-bold">{title}</h3>
@@ -92,7 +92,7 @@ const LiveEntry: React.FC<LiveProps> = ({
 					</div>
 				)}
 			</div>
-		</div>
+		</article>
 	);
 };
 

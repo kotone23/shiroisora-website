@@ -4,9 +4,23 @@ import { ViewTransitions } from "next-view-transitions";
 import "./globals.css";
 
 export const metadata: Metadata = {
-	title: "シロイソラ",
-	description: "シロイソラ",
+	metadataBase: new URL("https://${process.env.VERCEL_URL}"),
+	title: {
+		template: "%s | シロイソラ",
+		default: "シロイソラ official website",
+	},
+	description:
+		"シロイソラのオフィシャルサイト。ライブスケジュールや過去のセットリスト、CDの情報など。",
 	icons: [{ rel: "icon", url: Favicon.src }],
+	openGraph: {
+		title: {
+			template: "%s | シロイソラ",
+			default: "シロイソラ official website",
+		},
+		type: "website",
+		locale: "ja_JP",
+		images: "/images/profile.jpg",
+	},
 };
 
 export default function RootLayout({

@@ -20,7 +20,7 @@ export default function PageLayout({
 	return (
 		<html lang="ja">
 			<body className={`${notoSansJP.className} bg-[#fcfcfc]`}>
-				<div className="container mx-auto max-w-screen-lg mt-6 mb-6">
+				<header className="container mx-auto max-w-screen-lg mt-6 mb-6">
 					<div className="flex justify-center">
 						<Link href="/">
 							<Image
@@ -33,7 +33,7 @@ export default function PageLayout({
 							/>
 						</Link>
 					</div>
-				</div>
+				</header>
 				<SpNav />
 				<NavBar />
 				{isEnabled && (

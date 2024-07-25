@@ -4,8 +4,11 @@ import type { Metadata } from "next";
 import { draftMode } from "next/headers";
 
 export const metadata: Metadata = {
-	title: "シロイソラ | Discography",
-	description: "シロイソラ | Discography",
+	title: "Discography",
+	description: "シロイソラの楽曲リリース情報",
+	openGraph: {
+		title: "Discography",
+	},
 };
 
 export default async function DiscographyPage() {

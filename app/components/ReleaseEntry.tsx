@@ -21,7 +21,7 @@ import {
 	TooltipTrigger,
 } from "@/app/components/ui/tooltip";
 import { ScrollArea } from "@/app/components/ui/scroll-area";
-import { formatDateInEnglish } from "@/lib/utils";
+import { formatDateInEnglish, formatDateForDateTime } from "@/lib/utils";
 import type React from "react";
 import { FaApple, FaSpotify, FaYoutube } from "react-icons/fa6";
 import { PiChatTeardropTextLight } from "react-icons/pi";
@@ -125,7 +125,7 @@ export const ReleaseEntry: React.FC<ReleaseProps> = ({
 			<CardHeader className="grid gap-1 text-center space-y-0 p-0">
 				<CardTitle className="text-lg">{title}</CardTitle>
 				<CardDescription className="text-xs">
-					{releaseType} - {formatDateInEnglish(releaseDate)}
+					{releaseType} - <time dateTime={formatDateForDateTime(releaseDate)}>{formatDateInEnglish(releaseDate)}</time>
 				</CardDescription>
 				{price && (
 					<CardDescription className="text-sm">{price}</CardDescription>

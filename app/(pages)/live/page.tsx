@@ -5,8 +5,11 @@ import type { Metadata } from "next";
 import { draftMode } from "next/headers";
 
 export const metadata: Metadata = {
-	title: "シロイソラ | Live",
-	description: "シロイソラ | Live",
+	title: "Live",
+	description: "シロイソラのライブスケジュールと過去のライブ情報",
+	openGraph: {
+		title: "Live",
+	},
 };
 
 export default async function LivePage() {
@@ -17,7 +20,7 @@ export default async function LivePage() {
 		.reverse();
 
 	return (
-		<div className="container max-w-screen-lg mx-auto px-4">
+		<main className="container max-w-screen-lg mx-auto px-4">
 			<h1 className="flex justify-center text-4xl font-bold mt-8 mb-8">Live</h1>
 			{futureLives.length > 0 ? (
 				futureLives.map((live) => <LiveEntry key={live.sys.id} {...live} />)
@@ -36,6 +39,6 @@ export default async function LivePage() {
 				.map((live) => (
 					<LiveEntry key={live.sys.id} {...live} />
 				))}
-		</div>
+		</main>
 	);
 }
