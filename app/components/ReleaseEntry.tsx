@@ -62,7 +62,7 @@ const SongEntry: React.FC<SongWithIndex> = ({
 							</TooltipProvider>
 						</DialogTrigger>
 					</span>
-					<DialogContent className="max-h-full w-10/12 max-w-xl rounded">
+					<DialogContent className="max-h-full w-10/12 max-w-xl rounded-lg">
 						<DialogHeader>
 							<DialogTitle>{title}</DialogTitle>
 						</DialogHeader>

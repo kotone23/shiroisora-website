@@ -12,10 +12,18 @@ import {
 	SPOTIFY_URL,
 	APPLE_MUSIC_URL,
 } from "@/lib/band-metadata";
+import {
+	Dialog,
+	DialogContent,
+	DialogDescription,
+	DialogHeader,
+	DialogTitle,
+	DialogTrigger,
+} from "@/app/components/ui/dialog";
 
 export default function Footer() {
 	return (
-		<footer className="bg-gray-950 text-white py-3 mt-4 border-t-4 border-gray-300">
+		<footer className="bg-gray-950 text-white pt-3 pb-1.5 mt-4 border-t-4 border-gray-300">
 			<div className="container mx-auto max-w-screen-lg flex justify-center space-x-6">
 				<a
 					href={`https://x.com/${TWITTER_NAME}`}
@@ -42,7 +50,44 @@ export default function Footer() {
 				</a>
 			</div>
 			<div>
-				<p className="text-center mt-3">©︎ 2024 Shiroisora, All Rights Reserved.</p>
+				<p className="text-center mt-1.5">
+					©︎ 2024 Shiroisora, All Rights Reserved.
+				</p>
+			</div>
+			<div className="text-center mt-[-4px]">
+				<Dialog>
+					<DialogTrigger>
+						<p className="text-xs underline decoration-dotted hover:decoration-solid">
+							privacy policy
+						</p>
+					</DialogTrigger>
+					<DialogContent className="rounded-none">
+						<DialogHeader>
+							<DialogTitle>プライバシーポリシー</DialogTitle>
+							<DialogDescription>
+								このサイトは Google Analytics を利用しており、
+								<br className="hidden md:inline" />
+								データの収集のために Cookie が使用されます。
+								<br className="hidden md:inline" />
+								詳しくは Google の「
+								<a
+									href="https://policies.google.com/technologies/ads?hl=ja"
+									target="_blank"
+									rel="noreferrer"
+									className="underline"
+								>
+									ポリシーと規約
+								</a>
+								」をご覧ください。
+								<p className="mt-6">
+									また、サイトへのお問い合わせで取得した個人情報は、
+									<br className="hidden md:inline" />
+									必要な情報を連絡する用途にのみ利用します。
+								</p>
+							</DialogDescription>
+						</DialogHeader>
+					</DialogContent>
+				</Dialog>
 			</div>
 		</footer>
 	);
