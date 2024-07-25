@@ -14,6 +14,12 @@ import {
 	DialogTitle,
 	DialogTrigger,
 } from "@/app/components/ui/dialog";
+import {
+	Tooltip,
+	TooltipContent,
+	TooltipProvider,
+	TooltipTrigger,
+} from "@/app/components/ui/tooltip";
 import { ScrollArea } from "@/app/components/ui/scroll-area";
 import { formatDateInEnglish } from "@/lib/utils";
 import type React from "react";
@@ -38,15 +44,24 @@ const SongEntry: React.FC<SongWithIndex> = ({
 }) => {
 	const formattedIndex = index.toString().padStart(2, "0");
 	return (
-		<div>
+		<p>
 			{formattedIndex}. {title}
 			{lyrics && (
 				<Dialog>
-					<div className="ml-1 inline-block align-[-2px]">
+					<span className="ml-1 inline-block align-[-2px]">
 						<DialogTrigger>
-							<PiChatTeardropTextLight />
+							<TooltipProvider delayDuration={200}>
+								<Tooltip>
+									<TooltipTrigger asChild>
+										<PiChatTeardropTextLight />
+									</TooltipTrigger>
+									<TooltipContent>
+										<p>歌詞を表示</p>
+									</TooltipContent>
+								</Tooltip>
+							</TooltipProvider>
 						</DialogTrigger>
-					</div>
+					</span>
 					<DialogContent className="max-h-full w-10/12 max-w-xl rounded">
 						<DialogHeader>
 							<DialogTitle>{title}</DialogTitle>
@@ -89,7 +104,7 @@ const SongEntry: React.FC<SongWithIndex> = ({
 					<FaYoutube />
 				</a>
 			)}
-		</div>
+		</p>
 	);
 };
 
