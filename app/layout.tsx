@@ -1,8 +1,13 @@
 import Favicon from "@/public/images/favicon.ico";
 import type { Metadata } from "next";
+import { Noto_Sans_JP } from "next/font/google";
 import { ViewTransitions } from "next-view-transitions";
 import "./globals.css";
 import { TWITTER_NAME } from "@/lib/band-metadata";
+
+const notoSansJP = Noto_Sans_JP({ subsets: ["latin"] });
+// const mPlus1c = M_PLUS_1({ subsets: ['latin'] });
+// const murecho = Murecho({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
 	metadataBase: new URL(`https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`),
@@ -35,7 +40,9 @@ export default function RootLayout({
 	return (
 		<ViewTransitions>
 			<html lang="ja">
-				<body>{children}</body>
+				<body className={`${notoSansJP.className} bg-[#fcfcfc]`}>
+					{children}
+				</body>
 			</html>
 		</ViewTransitions>
 	);
