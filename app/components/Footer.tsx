@@ -22,6 +22,8 @@ import {
 } from "@/app/components/ui/dialog";
 
 export default function Footer() {
+	const thisYear = new Date().getFullYear();
+
 	return (
 		<footer className="bg-gray-950 text-white pt-3 pb-1.5 mt-4 border-t-4 border-gray-300">
 			<div className="container mx-auto max-w-screen-lg flex justify-center space-x-6">
@@ -51,7 +53,7 @@ export default function Footer() {
 			</div>
 			<div>
 				<p className="text-center mt-1.5">
-					©︎ 2024 Shiroisora, All Rights Reserved.
+					©︎ 2017-{thisYear} Shiroisora, All Rights Reserved.
 				</p>
 			</div>
 			<div className="text-center mt-[-4px]">
