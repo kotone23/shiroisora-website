@@ -35,6 +35,13 @@ function BandMembers() {
 							>
 								<FaXTwitter />
 							</a>
+							<a
+								href="https://www.instagram.com/shiro.key"
+								target="_blank"
+								rel="noreferrer"
+							>
+								<FaInstagram />
+							</a>
 						</div>
 					</div>
 				</div>
