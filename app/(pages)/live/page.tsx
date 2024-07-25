@@ -20,7 +20,7 @@ export default async function LivePage() {
 		.reverse();
 
 	return (
-		<main className="container max-w-screen-lg mx-auto px-4">
+		<main className="container max-w-screen-lg w-11/12 mx-auto px-4">
 			<h1 className="flex justify-center text-4xl font-bold mt-8 mb-8">Live</h1>
 			{futureLives.length > 0 ? (
 				futureLives.map((live) => <LiveEntry key={live.sys.id} {...live} />)
