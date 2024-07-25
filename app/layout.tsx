@@ -4,7 +4,7 @@ import { ViewTransitions } from "next-view-transitions";
 import "./globals.css";
 
 export const metadata: Metadata = {
-	metadataBase: new URL(`https://${process.env.VERCEL_URL}`),
+	metadataBase: new URL(`https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`),
 	title: {
 		template: "%s | シロイソラ",
 		default: "シロイソラ official website",
