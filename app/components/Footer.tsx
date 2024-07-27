@@ -73,7 +73,7 @@ export default function Footer() {
 								<br className="hidden md:inline" />
 								詳しくは Google の「
 								<a
-									href="https://policies.google.com/technologies/ads?hl=ja"
+									href="https://policies.google.com/technologies/partner-sites?hl=ja"
 									target="_blank"
 									rel="noreferrer"
 									className="underline"
