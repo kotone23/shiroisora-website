@@ -14,3 +14,5 @@ export const schema = z.object({
 		.string({ required_error: "お問い合わせ内容は入力必須です" })
 		.min(5, "お問い合わせ内容は5文字以上で入力してください"),
 });
+
+export type FormValues = z.infer<typeof schema>;

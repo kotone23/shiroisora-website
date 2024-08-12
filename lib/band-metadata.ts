@@ -9,3 +9,5 @@ export const APPLE_MUSIC_URL = "https://music.apple.com/jp/artist/%E3%82%B7%E3%8
 export const TWITTER_NAME = "shiroisoraband";
 export const INSTAGRAM_NAME = "shiroisoraband";
 export const BOOTH_URL = "https://shiroisora.booth.pm/";
+
+export const ADMIN_EMAIL = "シロイソラ <info@shiroisora.com>";
