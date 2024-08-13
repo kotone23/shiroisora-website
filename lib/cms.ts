@@ -50,6 +50,7 @@ const RELEASE_GRAPHQL_FIELDS = `
   title
   releaseType
   releaseDate
+	isComingSoon
   price
   spotifyLink
   appleMusicLink

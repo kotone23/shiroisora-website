@@ -55,6 +55,7 @@ export interface Release {
 	title: string;
 	releaseType: string;
 	releaseDate: string;
+	isComingSoon: boolean;
 	songCollection: {
 		items: Song[];
 	};

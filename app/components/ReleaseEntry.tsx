@@ -44,37 +44,40 @@ const SongEntry: React.FC<SongWithIndex> = ({
 }) => {
 	const formattedIndex = index.toString().padStart(2, "0");
 	return (
-		<p>
-			{formattedIndex}. {title}
-			{lyrics && (
-				<Dialog>
-					<span className="ml-1 inline-block align-[-2px]">
-						<DialogTrigger>
-							<TooltipProvider delayDuration={200}>
-								<Tooltip>
-									<TooltipTrigger asChild>
-										<PiChatTeardropTextLight />
-									</TooltipTrigger>
-									<TooltipContent>
-										<p>歌詞を表示</p>
-									</TooltipContent>
-								</Tooltip>
-							</TooltipProvider>
-						</DialogTrigger>
-					</span>
-					<DialogContent className="max-h-full w-10/12 max-w-xl rounded md:rounded-lg">
-						<DialogHeader>
-							<DialogTitle>{title}</DialogTitle>
-						</DialogHeader>
-						<DialogFooter className="flex text-center text-sm">
-							<ScrollArea className="max-h-96">
-								<MyMarkdown markdown={lyrics} />
-							</ScrollArea>
-						</DialogFooter>
-					</DialogContent>
-				</Dialog>
-			)}
-			{/* {spotifyLink && (
+		<div className="flex">
+			<div className="flex-shrink-0 w-6">{formattedIndex}.</div>
+			<div className="flex-grow">
+				<p className="inline-block">
+					{title}
+					{lyrics && (
+						<Dialog>
+							<span className="ml-1 inline-block align-[-2px]">
+								<DialogTrigger>
+									<TooltipProvider delayDuration={200}>
+										<Tooltip>
+											<TooltipTrigger asChild>
+												<PiChatTeardropTextLight />
+											</TooltipTrigger>
+											<TooltipContent>
+												<p>歌詞を表示</p>
+											</TooltipContent>
+										</Tooltip>
+									</TooltipProvider>
+								</DialogTrigger>
+							</span>
+							<DialogContent className="max-h-full w-10/12 max-w-xl rounded md:rounded-lg">
+								<DialogHeader>
+									<DialogTitle>{title}</DialogTitle>
+								</DialogHeader>
+								<DialogFooter className="flex text-center text-sm">
+									<ScrollArea className="max-h-96">
+										<MyMarkdown markdown={lyrics} />
+									</ScrollArea>
+								</DialogFooter>
+							</DialogContent>
+						</Dialog>
+					)}
+					{/* {spotifyLink && (
 				<a
 					href={spotifyLink.toString()}
 					target="_blank"
@@ -94,17 +97,19 @@ const SongEntry: React.FC<SongWithIndex> = ({
 					<FaApple />
 				</a>
 			)} */}
-			{youTubeLink && (
-				<a
-					href={youTubeLink.toString()}
-					target="_blank"
-					rel="noreferrer"
-					className="ml-1 inline-block align-[-2px]"
-				>
-					<FaYoutube />
-				</a>
-			)}
-		</p>
+					{youTubeLink && (
+						<a
+							href={youTubeLink.toString()}
+							target="_blank"
+							rel="noreferrer"
+							className="ml-1 inline-block align-[-2px]"
+						>
+							<FaYoutube />
+						</a>
+					)}
+				</p>
+			</div>
+		</div>
 	);
 };
 
@@ -112,6 +117,7 @@ export const ReleaseEntry: React.FC<ReleaseProps> = ({
 	title,
 	releaseType,
 	releaseDate,
+	isComingSoon,
 	songCollection,
 	price,
 	spotifyLink,
@@ -125,7 +131,13 @@ export const ReleaseEntry: React.FC<ReleaseProps> = ({
 			<CardHeader className="grid gap-1 text-center space-y-0 p-0">
 				<CardTitle className="text-lg">{title}</CardTitle>
 				<CardDescription className="text-xs">
-					{releaseType} - <time dateTime={formatDateForDateTime(releaseDate)}>{formatDateInEnglish(releaseDate)}</time>
+					{releaseType} -{" "}
+					{!isComingSoon && (
+						<time dateTime={formatDateForDateTime(releaseDate)}>
+							{formatDateInEnglish(releaseDate)}
+						</time>
+					)}
+					{isComingSoon && "Coming Soon"}
 				</CardDescription>
 				{price && (
 					<CardDescription className="text-sm">{price}</CardDescription>
@@ -149,22 +161,26 @@ export const ReleaseEntry: React.FC<ReleaseProps> = ({
 					</CardDescription>
 				)}
 			</CardHeader>
-			<CardContent className="flex flex-col md:flex-row items-center gap-8 justify-center mt-4">
-				<img
-					alt={`${title} カバー画像`}
-					className="object-cover"
-					height={240}
-					src={coverImageUrl}
-					style={{
-						aspectRatio: "240/240",
-						objectFit: "cover",
-					}}
-					width={240}
-				/>
-				<div className="p-0 grid gap-2 text-sm">
-					{songCollection.items.map((song, index) => (
-						<SongEntry key={song.sys.id} index={index + 1} {...song} />
-					))}
+			<CardContent className="flex flex-col md:flex-row items-center gap-8 md:gap-6 mt-4">
+				<div className="md:w-3/5 flex justify-center">
+					<img
+						alt={`${title} カバー画像`}
+						className="object-cover"
+						height={240}
+						src={coverImageUrl}
+						style={{
+							aspectRatio: "240/240",
+							objectFit: "cover",
+						}}
+						width={240}
+					/>
+				</div>
+				<div className="md:w-2/5">
+					<div className="p-0 grid gap-2 text-sm">
+						{songCollection.items.map((song, index) => (
+							<SongEntry key={song.sys.id} index={index + 1} {...song} />
+						))}
+					</div>
 				</div>
 			</CardContent>
 			{description && (
