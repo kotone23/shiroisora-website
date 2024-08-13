@@ -162,7 +162,7 @@ export const ReleaseEntry: React.FC<ReleaseProps> = ({
 				)}
 			</CardHeader>
 			<CardContent className="flex flex-col md:flex-row items-center gap-8 md:gap-6 mt-4">
-				<div className="md:w-3/5 flex justify-center">
+				<div className="md:w-3/5">
 					<img
 						alt={`${title} カバー画像`}
 						className="object-cover"
