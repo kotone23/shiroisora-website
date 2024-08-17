@@ -1,6 +1,6 @@
 import PageLayout from "./(pages)/layout";
-import { Button } from "@/app/components/ui/button";
 import Link from "next/link";
+import { buttonVariants } from "@/app/components/ui/button";
 import { FaCircleExclamation } from "react-icons/fa6";
 
 export default function NotFound() {
@@ -11,9 +11,9 @@ export default function NotFound() {
 				<p className="my-6 w-10/12 sm:w-8/12 mx-auto text-center">
 					お探しのページが見つかりませんでした。
 				</p>
-				<Button className="w-16 mt-12 mb-auto">
-					<Link href="/">TOP</Link>
-				</Button>
+				<Link href="/" className={`${buttonVariants()} mt-8`}>
+					TOP
+				</Link>
 			</section>
 		</PageLayout>
 	);
