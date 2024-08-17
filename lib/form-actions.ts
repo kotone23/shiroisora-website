@@ -5,6 +5,7 @@ import { Resend } from "resend";
 import ReceiptEmail from "@/packages/email/emails/ReceiptEmail";
 import InquiryEmail from "@/packages/email/emails/InquiryEmail";
 import { ADMIN_EMAIL } from "./band-metadata";
+import { redirect } from "next/navigation";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -13,6 +14,7 @@ export async function submit(prevState: unknown, formData: FormData) {
 	if (submission.status !== "success") {
 		return submission.reply();
 	}
+	let status = "error";
 	try {
 		const to = submission.value.email;
 		const { data: adminData, error: adminError } = await resend.emails.send({
@@ -43,11 +45,12 @@ export async function submit(prevState: unknown, formData: FormData) {
 				formErrors: ["Failed to send receipt email"],
 			});
 		}
-
-		return submission.reply();
+		status = "complete";
 	} catch (error) {
+		console.error(error);
 		return submission.reply({
 			formErrors: ["Failed to send email"],
 		});
 	}
+	redirect(`/contact/complete/${status}`);
 }

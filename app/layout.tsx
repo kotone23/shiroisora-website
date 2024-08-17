@@ -39,8 +39,8 @@ export default function RootLayout({
 }) {
 	return (
 		<ViewTransitions>
-			<html lang="ja">
-				<body className={`${notoSansJP.className} bg-[#fcfcfc]`}>
+			<html lang="ja" className="h-full">
+				<body className={`${notoSansJP.className} bg-[#fcfcfc] flex flex-col min-h-full`}>
 					{children}
 				</body>
 			</html>
