@@ -11,8 +11,13 @@ export default function ContactPage() {
 				<p className="my-6 w-10/12 sm:w-8/12 mx-auto text-center">
 					お問い合わせの送信に失敗しました。
 					<br className="hidden md:inline" />
-					お急ぎの場合は{" "}
-					<a href={`https://x.com/${TWITTER_NAME}`} className="underline" target="_blank" rel="noreferrer">
+					お手数ですが、お急ぎの場合は{" "}
+					<a
+						href={`https://x.com/${TWITTER_NAME}`}
+						className="underline"
+						target="_blank"
+						rel="noreferrer"
+					>
 						@{TWITTER_NAME}
 					</a>{" "}
 					までご連絡ください。
