@@ -8,7 +8,7 @@ export default function ContactPage() {
 		<>
 			<section className="flex flex-col items-center">
 				<FaCircleExclamation className="text-6xl mt-6" />
-				<p className="my-4 w-10/12 sm:w-8/12 mx-auto text-center">
+				<p className="my-6 w-10/12 sm:w-8/12 mx-auto text-center">
 					お問い合わせの送信に失敗しました。
 					<br className="hidden md:inline" />
 					お急ぎの場合は{" "}
