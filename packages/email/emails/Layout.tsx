@@ -4,19 +4,20 @@ import {
 	Head,
 	Html,
 	Img,
-  Link,
+	Link,
 	Preview,
 	Section,
 	Tailwind,
-  Text,
+	Text,
 } from "@react-email/components";
 import type * as React from "react";
+import { TWITTER_NAME, WEBSITE_URL } from "@/lib/band-metadata";
 
 export const EmailLayout = ({
-  preview,
+	preview,
 	children,
 }: {
-  preview: string;
+	preview: string;
 	children: React.ReactNode;
 }) => {
 	const thisYear = new Date().getFullYear();
@@ -36,17 +37,28 @@ export const EmailLayout = ({
 								className="mx-auto"
 							/>
 						</Section>
-            <Section className="bg-white p-6 rounded shadow">
-              {children}
-            </Section>
+						<Section className="bg-white p-6 rounded shadow">
+							{children}
+						</Section>
 						<Text className="text-sm text-gray-500 text-center">
-							© 2017-{thisYear} | Shiroisora, All rights reserved. |{" "}
+							シロイソラ <br/>
 							<Link
-								href="https://shiroisora.com"
+								href="mailto:info@shiroisora.com"
 								className="text-gray-500 underline"
 							>
-								shiroisora.com
-							</Link>
+								e-mail
+							</Link>{" "}
+							/{" "}
+							<Link href={WEBSITE_URL} className="text-gray-500 underline">
+								website
+							</Link>{" "}
+							/{" "}
+							<Link
+								href={`https://x.com/${TWITTER_NAME}`}
+								className="text-gray-500 underline"
+							>
+								X
+							</Link>{" "}
 						</Text>
 					</Container>
 				</Body>

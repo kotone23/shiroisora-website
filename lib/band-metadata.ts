@@ -11,3 +11,4 @@ export const INSTAGRAM_NAME = "shiroisoraband";
 export const BOOTH_URL = "https://shiroisora.booth.pm/";
 
 export const ADMIN_EMAIL = "シロイソラ <info@shiroisora.com>";
+export const WEBSITE_URL = "https://shiroisora.com";

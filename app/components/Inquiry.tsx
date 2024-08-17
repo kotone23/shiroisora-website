@@ -5,13 +5,10 @@ import { RadioGroupConform } from "@/app/components/conform/RadioGroup";
 import { TextareaConform } from "@/app/components/conform/Textarea";
 import { Button } from "@/app/components/ui/button";
 import { Label } from "@/app/components/ui/label";
-import { Toaster } from "@/app/components/ui/toaster";
-import { useToast } from "@/app/components/ui/use-toast";
 import { submit } from "@/lib/form-actions";
 import { schema } from "@/lib/form-schema";
 import { useForm } from "@conform-to/react";
 import { parseWithZod } from "@conform-to/zod";
-import { useEffect } from "react";
 import { useFormState, useFormStatus } from "react-dom";
 
 function Submit() {
@@ -33,100 +30,76 @@ export default function Inquiry() {
 		shouldValidate: "onBlur",
 		shouldRevalidate: "onInput",
 	});
-	const { toast } = useToast();
-	useEffect(() => {
-		if (result?.status === "success") {
-			toast({
-				title: "お問い合わせが送信されました",
-				description: "自動返信メールが届いているかご確認ください",
-			});
-		} else if (result?.status === "error") {
-			toast({
-				variant: "destructive",
-				title: "送信エラーが発生しました",
-				description: "お急ぎの場合は@shiroisorabandまで",
-			});
-		}
-	}, [result, toast]);
 	return (
-		<>
-			<div className="flex flex-col">
-				<form
-					id={form.id}
-					onSubmit={form.onSubmit}
-					action={action}
-					className="flex flex-col justify-center mx-auto gap-5 w-10/12 sm:w-8/12 mb-10"
-				>
-					<Field>
-						<Label htmlFor={fields.name.id}>お名前</Label>
-						<InputConform
-							meta={fields.name}
-							type="text"
-							className={
-								fields.name.errors &&
-								"border-red-500 focus-visible:ring-red-500"
-							}
-						/>
-						{fields.name.errors && (
-							<FieldError>{fields.name.errors}</FieldError>
-						)}
-					</Field>
-					<Field>
-						<Label htmlFor={fields.email.id}>メールアドレス</Label>
-						<InputConform
-							meta={fields.email}
-							type="email"
-							className={
-								fields.email.errors &&
-								"border-red-500 focus-visible:ring-red-500"
-							}
-						/>
-						{fields.email.errors && (
-							<FieldError>{fields.email.errors}</FieldError>
-						)}
-					</Field>
-					<Field>
-						<Label htmlFor={fields.type.id}>お問い合わせ種別</Label>
-						<RadioGroupConform
-							meta={fields.type}
-							items={[
-								{ value: "reservation", label: "チケットご予約" },
-								{ value: "inquiry", label: "ご依頼" },
-								{ value: "other", label: "その他" },
-							]}
-						/>
-						{fields.type.errors && (
-							<FieldError>{fields.type.errors}</FieldError>
-						)}
-					</Field>
-					<Field>
-						<Label htmlFor={fields.message.id}>お問い合わせ内容</Label>
-						<TextareaConform
-							meta={fields.message}
-							className={
-								fields.message.errors &&
-								"border-red-500 focus-visible:ring-red-500"
-							}
-						/>
-						{fields.message.errors && (
-							<FieldError>{fields.message.errors}</FieldError>
-						)}
-					</Field>
-					<Field>
-						<div className="flex justify-center mx-auto w-1/4 gap-2">
-							<Submit />
-							<Button
-								variant="secondary"
-								type="reset"
-								{...form.reset.getButtonProps()}
-							>
-								リセット
-							</Button>
-						</div>
-					</Field>
-				</form>
-			</div>
-			<Toaster />
-		</>
+		<div className="flex flex-col">
+			<form
+				id={form.id}
+				onSubmit={form.onSubmit}
+				action={action}
+				className="flex flex-col justify-center mx-auto gap-5 w-10/12 sm:w-8/12 mb-10"
+			>
+				<Field>
+					<Label htmlFor={fields.name.id}>お名前</Label>
+					<InputConform
+						meta={fields.name}
+						type="text"
+						className={
+							fields.name.errors && "border-red-500 focus-visible:ring-red-500"
+						}
+					/>
+					{fields.name.errors && <FieldError>{fields.name.errors}</FieldError>}
+				</Field>
+				<Field>
+					<Label htmlFor={fields.email.id}>メールアドレス</Label>
+					<InputConform
+						meta={fields.email}
+						type="email"
+						className={
+							fields.email.errors && "border-red-500 focus-visible:ring-red-500"
+						}
+					/>
+					{fields.email.errors && (
+						<FieldError>{fields.email.errors}</FieldError>
+					)}
+				</Field>
+				<Field>
+					<Label htmlFor={fields.type.id}>お問い合わせ種別</Label>
+					<RadioGroupConform
+						meta={fields.type}
+						items={[
+							{ value: "reservation", label: "チケットご予約" },
+							{ value: "inquiry", label: "ご依頼" },
+							{ value: "other", label: "その他" },
+						]}
+					/>
+					{fields.type.errors && <FieldError>{fields.type.errors}</FieldError>}
+				</Field>
+				<Field>
+					<Label htmlFor={fields.message.id}>お問い合わせ内容</Label>
+					<TextareaConform
+						meta={fields.message}
+						className={
+							fields.message.errors &&
+							"border-red-500 focus-visible:ring-red-500"
+						}
+					/>
+					{fields.message.errors && (
+						<FieldError>{fields.message.errors}</FieldError>
+					)}
+				</Field>
+				<Field>
+					<div className="flex justify-center mx-auto w-1/4 gap-2">
+						<Submit />
+						<Button
+							variant="secondary"
+							type="reset"
+							{...form.reset.getButtonProps()}
+						>
+							リセット
+						</Button>
+					</div>
+				</Field>
+			</form>
+		</div>
 	);
 }

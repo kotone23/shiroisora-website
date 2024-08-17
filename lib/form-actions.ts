@@ -27,9 +27,6 @@ export async function submit(prevState: unknown, formData: FormData) {
 
 		if (adminError) {
 			console.error(adminError);
-			return submission.reply({
-				formErrors: ["Failed to send admin notification"],
-			});
 		}
 
 		const { data: resendData, error: resendError } = await resend.emails.send({
@@ -41,16 +38,10 @@ export async function submit(prevState: unknown, formData: FormData) {
 
 		if (resendError) {
 			console.error(resendError);
-			return submission.reply({
-				formErrors: ["Failed to send receipt email"],
-			});
 		}
 		status = "complete";
 	} catch (error) {
 		console.error(error);
-		return submission.reply({
-			formErrors: ["Failed to send email"],
-		});
 	}
-	redirect(`/contact/complete/${status}`);
+	redirect(`/contact/${status}`);
 }

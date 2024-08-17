@@ -16,11 +16,11 @@ export const ReceiptEmail = ({ name, email, type, message }: FormValues) => {
 			</Heading>
 			<Text className="text-gray-700">{sanitize(name)} 様</Text>
 			<Text className="text-gray-700">
-				この度はお問い合わせいただきありがとうございます。内容を確認の上、ご連絡させていただきます。しばらくお待ちくださいますようお願い申し上げます。
+				この度はお問い合わせいただきありがとうございます。内容を確認の上、ご連絡させていただきます（チケットのご予約の場合はまだ確定していません）。
+				<br />
+				しばらくお待ちくださいますようお願い申し上げます。
 			</Text>
-			<Text className="text-gray-700">
-				※本メールは自動送信されています。返信はご遠慮ください。
-			</Text>
+			<Text className="text-gray-700">※本メールは自動送信されています。</Text>
 		</EmailLayout>
 	);
 };
