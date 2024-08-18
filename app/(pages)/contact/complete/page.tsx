@@ -1,19 +1,11 @@
-import Link from "next/link";
-import { buttonVariants } from "@/app/components/ui/button";
-import { FaCircleCheck } from "react-icons/fa6";
+import { InformationBlock } from "@/app/components/NotificationBlocks";
 
 export default function ContactPage() {
 	return (
-		<section className="flex flex-col items-center">
-			<FaCircleCheck className="text-6xl mt-6" />
-			<p className="my-6 w-10/12 sm:w-8/12 mx-auto text-center">
-				お問い合わせありがとうございました。
-				<br className="hidden md:inline" />
-				自動返信メールが届いていることをご確認ください。
-			</p>
-			<Link href="/" className={`${buttonVariants()} mt-8`}>
-				TOP
-			</Link>
-		</section>
+		<InformationBlock>
+			お問い合わせありがとうございました。
+			<br className="hidden md:inline" />
+			自動返信メールが届いていることをご確認ください。
+		</InformationBlock>
 	);
 }
