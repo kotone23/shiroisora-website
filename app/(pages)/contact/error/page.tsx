@@ -1,5 +1,12 @@
 import { TWITTER_NAME } from "@/lib/band-metadata";
 import { WarningBlock } from "@/app/components/NotificationBlocks";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+	robots: {
+		index: false,
+	}
+};
 
 export default function ContactPage() {
 	return (
