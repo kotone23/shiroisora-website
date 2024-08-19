@@ -27,6 +27,7 @@ const LIVE_GRAPHQL_FIELDS = `
   charge
   performers
   description
+	commentary
   setlistCollection (limit: 15) {
     items {
       title

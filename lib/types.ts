@@ -39,6 +39,7 @@ export interface Live {
 	charge: string | null;
 	performers: string | null;
 	description: string | null;
+	commentary: string | null;
 	setlistCollection: {
 		items: Omit<Song, "sys">[];
 	};
