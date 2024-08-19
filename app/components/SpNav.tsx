@@ -11,7 +11,7 @@ export default function SpNav() {
 			<div className="block lg:hidden fixed top-0 left-0 m-6 px-1.5 pt-2 py-1 bg-inherit/10 backdrop-blur-sm">
 				<button type="button" onClick={() => setIsOpen(!isOpen)}>
 					<Image
-						src="/humberger.svg"
+						src="/images/humberger.svg"
 						alt="humberger menu"
 						width={24}
 						height={24}

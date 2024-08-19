@@ -125,7 +125,7 @@ export const ReleaseEntry: React.FC<ReleaseProps> = ({
 	coverImage,
 	description,
 }) => {
-	const coverImageUrl = coverImage?.url.toString() ?? "/placeholder.svg";
+	const coverImageUrl = coverImage?.url.toString() ?? "/images/no-image.png";
 	return (
 		<Card className="max-w-xl p-6">
 			<CardHeader className="grid gap-1 text-center space-y-0 p-0">
