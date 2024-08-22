@@ -29,7 +29,7 @@ export default function Home() {
 			</div>
 			<div className="p-6">
 				<h1 className="text-center text-xl">シロイソラ</h1>
-				<div className="px-8 py-6 text-xs md:text-sm text-center">
+				<div className="px-3 py-6 text-xs md:text-sm text-left md:text-center">
 					2016年、幼馴染のひかりと縫部で立ち上げ。
 					<br className="hidden md:inline" />
 					それぞれの学生時代からの友人である田中とねねを誘い、2017年より活動開始。
