@@ -23,8 +23,18 @@ export default function Home() {
 						priority
 					/>
 				</div>
+				<div className="mt-2 text-right text-xs text-muted-foreground">
+					L→R / 縫部たまき、ねね、ひかり、田中琴音
+				</div>
 			</div>
-			<div className="w-full mt-12 mb-16">
+			<div className="px-8 py-6 text-xs md:text-sm text-center">
+				2016年、幼馴染のひかりと縫部で立ち上げ。
+				<br />
+				それぞれの学生時代からの友人である田中とねねを誘い、2017年より活動開始。
+				<br className="hidden md:inline" />
+				「4人で完結する音楽」を唯一のルールとし、なにものにもとらわれない独自の表現を模索中。
+			</div>
+			<div className="p-6">
 				<h1 className="text-center text-xl">シロイソラ</h1>
 				<BandMembers />
 			</div>
