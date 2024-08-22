@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## プロジェクト構成
+- .devcontainer
+  - VSCode Remote Containerの設定
+- .vscode
+  - VSCodeの設定
+- app
+  - (pages)
+    - 各ページのコンポーネント
+  - api
+    - Route Handlerの関数（ドラフトモード切り替え、Revalidate）
+  - components
+    - conform
+      - フォームのコンポーネント
+    - ui
+      - shadcn/uiコンポーネント
+    - その他のコンポーネント
+- lib
+  - CMSの呼び出し、フォームの処理、型定義など
+- packages/email
+  - メールデザイン（React Email）
+- public
+  - 静的ファイル（画像）
+- `next.config.js`
+  - リダイレクト設定
 
-## Getting Started
+## 開発
 
-First, run the development server:
+### GitHub Codespacesを使った修正方法
+#### 立ち上げ
+ブランチをmainではなくdevに切り替えて、「< > Code」の緑ボタンをクリックして、
+Codespacesタブを選択して、「Create codespace on dev」をクリックしてください。
 
+#### 環境変数の設定
+`.env.example`をコピーして`.env.local`を作成し、環境変数を設定してください。
+※Contentfulのコンテンツが記載されていないページを更新するならスキップ可（トップページ）
+
+#### ローカルサーバーの立ち上げ
+以下のコマンドを実行してください。
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```
+ローカルサーバーが立ち上がります。
+自動で立ち上がらない場合は、 http://localhost:3000 にアクセスしてください。
+
+#### 修正
+VSCode上でファイルを修正してください。
+ローカルサーバーが立ち上がっているので、修正内容がリアルタイムに反映されます。
+正しく動作するか確認してください。
+
+#### コミット
+以下のコマンドを実行してください。
+```bash
+git add <修正したファイル>
+git commit -m "コミットメッセージ"
+git push
+```
+STG環境に自動デプロイされます。
+1分程度で反映されるので、その後に確認してください。
+
+#### プルリクエスト
+GitHubのリポジトリでdev->mainに向けてプルリクエストを作成してください。
+管理者が確認してマージします。
+
+### メールデザインの開発環境
+
+```bash
+cd packages/email
+npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+ローカルサーバーが立ち上がります。
+自動で立ち上がらない場合は、 http://localhost:3001 にアクセスしてください。

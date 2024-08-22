@@ -52,7 +52,7 @@ export default function Footer() {
 				</a>
 			</div>
 			<div>
-				<p className="text-center mt-1.5">
+				<p className="text-center text-sm mt-1.5">
 					©︎ 2017-{thisYear} Shiroisora, All Rights Reserved.
 				</p>
 			</div>

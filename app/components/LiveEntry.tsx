@@ -51,18 +51,20 @@ const LiveEntry: React.FC<LiveProps> = ({
 			<div className="md:w-5/6 md:pl-4">
 				<h3 className="text-lg font-bold mb-4">{title}</h3>
 				<div className="grid gap-0.5">
-					<div className="flex items-start gap-3">
-						<FaLocationDot className="flex-shrink-0 mt-1.5" />
-						{!venue.url ? (
-							<p className="flex-grow min-w-0">{venue.name}</p>
-						) : (
-							<p className="flex-grow min-w-0 underline">
-								<a href={`${venue.url}`} rel="noreferrer" target="_blank">
-									{venue.name}
-								</a>
-							</p>
-						)}
-					</div>
+					{venue && (
+						<div className="flex items-start gap-3">
+							<FaLocationDot className="flex-shrink-0 mt-1.5" />
+							{!venue.url ? (
+								<p className="flex-grow min-w-0">{venue.name}</p>
+							) : (
+								<p className="flex-grow min-w-0 underline">
+									<a href={`${venue.url}`} rel="noreferrer" target="_blank">
+										{venue.name}
+									</a>
+								</p>
+							)}
+						</div>
+					)}
 					{time && (
 						<div className="flex items-start gap-3">
 							<FaRegClock className="flex-shrink-0 mt-1.5" />
