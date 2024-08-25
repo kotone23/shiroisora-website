@@ -1,9 +1,10 @@
-import Favicon from "@/public/images/favicon.ico";
 import type { Metadata } from "next";
 import { Noto_Sans_JP } from "next/font/google";
 import { ViewTransitions } from "next-view-transitions";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
-import { TWITTER_NAME } from "@/lib/band-metadata";
+import { TWITTER_NAME, GOOGLE_ANALYTICS_ID } from "@/lib/band-metadata";
+import Favicon from "@/public/images/favicon.ico";
 
 const notoSansJP = Noto_Sans_JP({ subsets: ["latin"] });
 // const mPlus1c = M_PLUS_1({ subsets: ['latin'] });
@@ -40,9 +41,14 @@ export default function RootLayout({
 	return (
 		<ViewTransitions>
 			<html lang="ja" className="h-full">
-				<body className={`${notoSansJP.className} bg-[#fcfcfc] flex flex-col min-h-full`}>
+				<body
+					className={`${notoSansJP.className} bg-[#fcfcfc] flex flex-col min-h-full`}
+				>
 					{children}
 				</body>
+				{process.env.VERCEL_ENV === "production" && (
+					<GoogleAnalytics gaId={GOOGLE_ANALYTICS_ID} />
+				)}
 			</html>
 		</ViewTransitions>
 	);
