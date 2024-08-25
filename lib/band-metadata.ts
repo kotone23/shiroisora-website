@@ -12,3 +12,5 @@ export const BOOTH_URL = "https://shiroisora.booth.pm/";
 
 export const ADMIN_EMAIL = "シロイソラ <info@shiroisora.com>";
 export const WEBSITE_URL = "https://shiroisora.com";
+
+export const GOOGLE_ANALYTICS_ID = "G-X8VFZXFP4X";
