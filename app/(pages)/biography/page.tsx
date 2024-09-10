@@ -16,15 +16,15 @@ export default function Home() {
 			<div className="container mx-auto max-w-screen-lg md:mt-8">
 				<div className="flex justify-center">
 					<Image
-						src="/images/profile.jpg"
+						src="/images/profile_2409.jpg"
 						alt="profile"
-						width={960}
+						width={1024}
 						height={640}
 						priority
 					/>
 				</div>
 				<div className="mt-2 text-right text-xs text-muted-foreground">
-					L→R / 縫部たまき、ねね、ひかり、田中琴音
+					L→R / 田中琴音、ひかり、縫部たまき、ねね
 				</div>
 			</div>
 			<div className="p-6">
