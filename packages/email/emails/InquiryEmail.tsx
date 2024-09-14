@@ -26,11 +26,16 @@ export const InquiryEmail = ({ name, email, type, message }: FormValues) => {
 			<Text className="text-gray-700">メールアドレス：{sanitize(email)}</Text>
 			<Text className="text-gray-700">種別：{inquiryType}</Text>
 			<Hr />
-			<Text className="text-gray-700 whitespace-pre-line">
-				<ReactMarkdown remarkPlugins={[remarkBreaks]}>
-					{sanitize(message.replace(/\n\n/gi, "\n &nbsp; \n"))}
-				</ReactMarkdown>
-			</Text>
+			<ReactMarkdown
+				remarkPlugins={[remarkBreaks]}
+				components={{
+					p: ({ node, ...props }) => {
+						return <p className="text-gray-900">{props.children}</p>;
+					},
+				}}
+			>
+				{sanitize(message.replace(/\n\n/gi, "\n &nbsp; \n"))}
+			</ReactMarkdown>
 		</EmailLayout>
 	);
 };
