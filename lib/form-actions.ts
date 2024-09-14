@@ -23,7 +23,7 @@ export async function submit(prevState: unknown, formData: FormData) {
 		});
 		const { data: adminData, error: adminError } = await resend.emails.send({
 			from: ADMIN_EMAIL,
-			to: "kento-yoshida@sendgridjp.xyz",
+			to: ADMIN_EMAIL,
 			subject: "お問い合わせ受付のお知らせ",
 			reply_to: to,
 			react: InquiryEmail(submission.value),
