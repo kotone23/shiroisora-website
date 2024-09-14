@@ -1,8 +1,10 @@
-import { Heading, Hr, Text, Markdown } from "@react-email/components";
+import { Heading, Hr, Text } from "@react-email/components";
 import * as React from "react";
 import EmailLayout from "./Layout";
 import type { FormValues } from "@/lib/form-schema";
 import DOMPurify from "isomorphic-dompurify";
+import ReactMarkdown from "react-markdown";
+import remarkBreaks from "remark-breaks";
 
 const sanitize = (input: string): string => {
 	return DOMPurify.sanitize(input);
@@ -25,7 +27,9 @@ export const InquiryEmail = ({ name, email, type, message }: FormValues) => {
 			<Text className="text-gray-700">種別：{inquiryType}</Text>
 			<Hr />
 			<Text className="text-gray-700 whitespace-pre-line">
-				<Markdown>{sanitize(message)}</Markdown>
+				<ReactMarkdown remarkPlugins={[remarkBreaks]}>
+					{sanitize(message.replace(/\n\n/gi, "\n &nbsp; \n"))}
+				</ReactMarkdown>
 			</Text>
 		</EmailLayout>
 	);
