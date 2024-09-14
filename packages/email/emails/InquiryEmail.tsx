@@ -1,4 +1,4 @@
-import { Heading, Hr, Text } from "@react-email/components";
+import { Heading, Hr, Text, Markdown } from "@react-email/components";
 import * as React from "react";
 import EmailLayout from "./Layout";
 import type { FormValues } from "@/lib/form-schema";
@@ -24,7 +24,9 @@ export const InquiryEmail = ({ name, email, type, message }: FormValues) => {
 			<Text className="text-gray-700">メールアドレス：{sanitize(email)}</Text>
 			<Text className="text-gray-700">種別：{inquiryType}</Text>
 			<Hr />
-			<Text className="text-gray-700 whitespace-pre-line">{sanitize(message)}</Text>
+			<Text className="text-gray-700 whitespace-pre-line">
+				<Markdown>{sanitize(message)}</Markdown>
+			</Text>
 		</EmailLayout>
 	);
 };
