@@ -1,6 +1,6 @@
 // トップページに表示するMVのID（www.youtube.com/watch?v=のうしろの部分）
 // ice flower
-export const YOUTUBE_MV_ID = "1_TfwCeEVMY";
+export const YOUTUBE_MV_ID = "skV-C8aJOFs";
 
 export const YOUTUBE_CHANNEL_URL = "https://www.youtube.com/@shiroisora";
 export const SPOTIFY_URL = "https://open.spotify.com/intl-ja/artist/10m6WRmFD8d18v96jTKPRg";
