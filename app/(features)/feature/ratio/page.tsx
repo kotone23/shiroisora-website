@@ -222,7 +222,6 @@ I want to know your ideal you.`,
 	return (
 		<div className="min-h-screen bg-black text-white overflow-hidden">
 			<video
-				autoPlay
 				loop
 				muted
 				playsInline
