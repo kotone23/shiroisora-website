@@ -225,6 +225,7 @@ I want to know your ideal you.`,
 				autoPlay
 				loop
 				muted
+				playsInline
 				className="fixed top-0 left-0 min-w-full min-h-full object-cover z-0 opacity-50"
 			>
 				<source src="/features/liquid.mp4" type="video/mp4" />
