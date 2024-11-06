@@ -70,7 +70,7 @@ export default function RatioReleasePage() {
 			title: "enigma",
 			url: "https://www.youtube.com/embed/Ivfrp24t1sU",
 			mv: "https://www.youtube.com/watch?v=1_TfwCeEVMY",
-			thumbnail: "/features/enigma.jpg", // https://i.ytimg.com/vi/{id}/oar2.jpg
+			thumbnail: "/features/ratio/enigma.jpg", // https://i.ytimg.com/vi/{id}/oar2.jpg
 			lyrics: `眠っては生まれ変わって
 絶望、希望、を繰り返す
 いずれ「若さ」に回収される
@@ -118,7 +118,7 @@ export default function RatioReleasePage() {
 			id: 2,
 			title: "Invisibles",
 			url: "https://www.youtube.com/embed/iwgKgKio_ZE",
-			thumbnail: "/features/invisibles.jpg",
+			thumbnail: "/features/ratio/invisibles.jpg",
 			lyrics: `その蜩の行く先に待つ私
 「ありのまま」が描く無色の問い
 子どもの頃に見た景色をなぞる
@@ -145,7 +145,7 @@ I want to know your ideal you.`,
 			id: 3,
 			title: "Waive",
 			url: "",
-			thumbnail: "/features/waive.jpg",
+			thumbnail: "/features/ratio/waive.jpg",
 			lyrics: `醒めた途端に雨が降り
 枯れた孤独に滴った
 
@@ -179,7 +179,7 @@ I want to know your ideal you.`,
 			id: 4,
 			title: "after all",
 			url: "",
-			thumbnail: "/features/after_all.jpg",
+			thumbnail: "/features/ratio/after_all.jpg",
 			lyrics: `赤橙に沈む視界
 温い風に身を委ねて
 冷笑に縋るきらい
@@ -226,9 +226,10 @@ I want to know your ideal you.`,
 				loop
 				muted
 				playsInline
+				poster="/features/ratio/liquid_poster.jpg"
 				className="fixed top-0 left-0 min-w-full min-h-full object-cover z-0 opacity-50"
 			>
-				<source src="/features/liquid.mp4" type="video/mp4" />
+				<source src="/features/ratio/liquid_720p.mp4" type="video/mp4" />
 				Your browser does not support the video tag.
 			</video>
 
@@ -254,7 +255,7 @@ I want to know your ideal you.`,
 							{shorts.map((short) => (
 								<Card
 									key={short.id}
-									className="flex-shrink-0 w-64 bg-gray-800 cursor-pointer hover:scale-105 transition-transform duration-200"
+									className="flex-shrink-0 w-64 bg-gray-800 cursor-pointer md:hover:scale-105 transition-transform duration-200"
 									onClick={() => short.url && setOpenVideo(short)}
 								>
 									<CardContent className="p-0 h-full relative">
@@ -291,7 +292,6 @@ I want to know your ideal you.`,
 									height="100%"
 									src={`${openVideo.url}?autoplay=1&mute=1`}
 									title={`YouTube Short ${openVideo.id}`}
-									frameBorder="0"
 									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 									allowFullScreen
 								/>
@@ -302,7 +302,7 @@ I want to know your ideal you.`,
 
 				<section
 					id="cover"
-					className={`h-screen flex justify-center items-center p-4 transition-opacity duration-1000 ${
+					className={`min-h-screen flex justify-center items-center w-5/6 mx-auto p-4 transition-opacity duration-1000 ${
 						isVisible.cover ? "opacity-100" : "opacity-0"
 					}`}
 				>
@@ -311,13 +311,12 @@ I want to know your ideal you.`,
 						target="_blank"
 						rel="noopener noreferrer"
 					>
-						<div className="border transition-transform duration-200 hover:scale-105">
+						<div className="border transition-transform duration-200 md:hover:scale-105">
 							<Image
-								src="/features/ratio_cover.jpg"
+								src="/features/ratio/ratio_cover.jpg"
 								alt="EP Cover"
 								width={500}
 								height={500}
-								className="shadow-2xl"
 							/>
 						</div>
 					</a>
@@ -383,7 +382,8 @@ I want to know your ideal you.`,
 						自らの手でその配色を操らない限り、美しく見えることはない。
 					</p>
 					<p className="w-5/6 mt-24 mb-6 md:text-center">
-						全国のCDショップでお取り扱いしております。<br />
+						全国のCDショップでお取り扱いしております。
+						<br />
 						※限定ロゴステッカー付き
 					</p>
 					<ol className="space-y-2 mb-16 text-center">
