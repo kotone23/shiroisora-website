@@ -227,7 +227,7 @@ I want to know your ideal you.`,
 				muted
 				playsInline
 				poster="/features/ratio/liquid_poster.jpg"
-				className="fixed top-0 left-0 min-w-full min-h-full object-cover z-0 opacity-50"
+				className="fixed top-0 left-0 min-w-full min-h-full object-cover z-0 opacity-50 pointer-events-none"
 			>
 				<source src="/features/ratio/liquid_720p.mp4" type="video/mp4" />
 				Your browser does not support the video tag.
