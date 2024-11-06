@@ -26,8 +26,18 @@ export default function Home() {
 			<NavBar />
 			<TopLogo />
 			<ScrollDownArrows />
-			<div className="container mx-auto min-h-[60vh] max-w-xl lg:max-w-3xl h-auto mb-10">
+			<div className="container mx-auto min-h-[60vh] md:min-h-[70vh] max-w-xl lg:max-w-3xl h-auto">
 				<MV videoId={YOUTUBE_MV_ID} />
+				<div className="mt-24 lg:mt-12 z-50 flex flex-col justify-center text-center">
+					<h2 className="text-xl font-bold mb-4">News</h2>
+					<ul>
+						<li>
+							<a href="/feature/ratio" className="underline hover:no-underline">
+								1st EP "Ratio" 2024.11.20 Release
+							</a>
+						</li>
+					</ul>
+				</div>
 			</div>
 		</>
 	);
