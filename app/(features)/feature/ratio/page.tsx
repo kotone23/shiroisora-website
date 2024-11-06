@@ -227,13 +227,14 @@ I want to know your ideal you.`,
 				muted
 				playsInline
 				poster="/features/ratio/liquid_poster.jpg"
-				className="fixed top-0 left-0 min-w-full min-h-full object-cover z-0 opacity-50 pointer-events-none"
+				className="fixed top-0 left-0 min-w-full min-h-full object-cover opacity-50"
+				style={{ zIndex: 1 }}
 			>
 				<source src="/features/ratio/liquid_720p.mp4" type="video/mp4" />
 				Your browser does not support the video tag.
 			</video>
 
-			<div className="relative z-10">
+			<div className="relative" style={{ zIndex: 2 }}>
 				<header className="h-screen flex flex-col justify-center items-center text-center p-4">
 					<h1 className="text-2xl md:text-4xl mb-4">1st EP</h1>
 					<h2 className="text-4xl md:text-6xl mb-4">"Ratio"</h2>
