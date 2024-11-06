@@ -391,7 +391,7 @@ I want to know your ideal you.`,
 								target="_blank"
 								rel="noreferrer"
 								href="https://tower.jp/item/6473373"
-								className="inline-flex items-center underline"
+								className="inline-flex items-center underline hover:no-underline"
 							>
 								タワーレコード
 								<ExternalLinkIcon />
@@ -402,7 +402,7 @@ I want to know your ideal you.`,
 								target="_blank"
 								rel="noreferrer"
 								href="https://www.hmv.co.jp/artist_%E3%82%B7%E3%83%AD%E3%82%A4%E3%82%BD%E3%83%A9_000000000974560/item_Ratio_15302554"
-								className="inline-flex items-center underline"
+								className="inline-flex items-center underline hover:no-underline"
 							>
 								HMV
 								<ExternalLinkIcon />
@@ -413,7 +413,7 @@ I want to know your ideal you.`,
 								target="_blank"
 								rel="noreferrer"
 								href="https://diskunion.net/jp/ct/detail/1008919188"
-								className="inline-flex items-center underline"
+								className="inline-flex items-center underline hover:no-underline"
 							>
 								ディスクユニオン
 								<ExternalLinkIcon />
