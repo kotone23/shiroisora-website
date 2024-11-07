@@ -16,7 +16,7 @@ export default function Home() {
 			<div className="container mx-auto max-w-screen-lg md:mt-8">
 				<div className="flex justify-center">
 					<Image
-						src="/images/profile_2409.jpg"
+						src="/images/profile.jpg"
 						alt="profile"
 						width={1024}
 						height={640}
