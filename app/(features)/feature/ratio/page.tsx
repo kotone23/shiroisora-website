@@ -144,7 +144,7 @@ I want to know your ideal you.`,
 		{
 			id: 3,
 			title: "Waive",
-			url: "",
+			url: "https://www.youtube.com/embed/ijMkKSnWXkw",
 			thumbnail: "/features/ratio/waive.jpg",
 			lyrics: `醒めた途端に雨が降り
 枯れた孤独に滴った
