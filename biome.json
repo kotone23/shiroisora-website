@@ -11,5 +11,9 @@
 				"useKeyWithClickEvents": "off"
 			}
 		}
+	},
+	"files": {
+		"include": ["app/**/*", "lib/**/*"],
+		"ignore": ["app/components/ui/*", ".next/**/*"]
 	}
 }

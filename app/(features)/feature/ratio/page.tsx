@@ -178,7 +178,7 @@ I want to know your ideal you.`,
 		{
 			id: 4,
 			title: "after all",
-			url: "",
+			url: "https://www.youtube.com/embed/ANQtx6XZc60",
 			thumbnail: "/features/ratio/after_all.jpg",
 			lyrics: `赤橙に沈む視界
 温い風に身を委ねて
