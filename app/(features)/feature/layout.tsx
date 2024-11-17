@@ -1,7 +1,6 @@
 import Footer from "@/app/components/Footer";
 import WhiteNav from "@/app/components/WhiteNav";
 
-
 export default function PageLayout({
 	children,
 }: {
