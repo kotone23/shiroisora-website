@@ -145,7 +145,7 @@ I want to know your ideal you.`,
 			id: 3,
 			title: "Waive",
 			url: "https://www.youtube.com/embed/ijMkKSnWXkw",
-			thumbnail: "/features/ratio/waive.jpg",
+			thumbnail: "/features/ratio/waive_.jpg",
 			lyrics: `醒めた途端に雨が降り
 枯れた孤独に滴った
 
@@ -179,7 +179,7 @@ I want to know your ideal you.`,
 			id: 4,
 			title: "after all",
 			url: "https://www.youtube.com/embed/ANQtx6XZc60",
-			thumbnail: "/features/ratio/after_all.jpg",
+			thumbnail: "/features/ratio/after_all_.jpg",
 			lyrics: `赤橙に沈む視界
 温い風に身を委ねて
 冷笑に縋るきらい
