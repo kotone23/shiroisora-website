@@ -14,7 +14,7 @@ type GalleryImage = {
 
 const galleryImages: GalleryImage[] = [
   {
-    src: "/images/profile_2409.jpg",
+    src: "/images/profile.jpg",
     alt: "Band performing live on stage",
     photographer: "Jane Doe",
     period: "May 2023 - September 2024"
