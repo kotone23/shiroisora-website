@@ -6,7 +6,7 @@ import { draftMode } from "next/headers";
 
 export const metadata: Metadata = {
 	title: "Live",
-	description: "シロイソラのライブスケジュールと過去のライブ情報",
+	description: "白イ空のライブスケジュールと過去のライブ情報",
 	openGraph: {
 		title: "Live",
 	},

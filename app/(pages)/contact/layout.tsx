@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
 	title: "Contact",
-	description: "シロイソラへのお問い合わせフォーム",
+	description: "白イ空へのお問い合わせフォーム",
 	openGraph: {
 		title: "Contact",
 	},

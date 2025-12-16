@@ -18,7 +18,7 @@ export default function PageLayout({
 				<div className="flex justify-center">
 					<Link href="/">
 						<Image
-							src="/images/logo_slate.png"
+							src="/images/logo_v2_tp.png"
 							alt="logo"
 							width={128}
 							height={128}
