@@ -5,7 +5,7 @@ import { draftMode } from "next/headers";
 
 export const metadata: Metadata = {
 	title: "Media",
-	description: "シロイソラのメディア掲載情報",
+	description: "白イ空のメディア掲載情報",
 	openGraph: {
 		title: "Media",
 	},

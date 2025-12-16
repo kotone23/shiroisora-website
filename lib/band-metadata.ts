@@ -12,7 +12,7 @@ export const TWITTER_NAME = "shiroisoraband";
 export const INSTAGRAM_NAME = "shiroisoraband";
 export const BOOTH_URL = "https://shiroisora.booth.pm/";
 
-export const ADMIN_EMAIL = "シロイソラ <info@shiroisora.com>";
+export const ADMIN_EMAIL = "白イ空 <info@shiroisora.com>";
 export const WEBSITE_URL = "https://shiroisora.com";
 
 export const GOOGLE_ANALYTICS_ID = "G-X8VFZXFP4X";

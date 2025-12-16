@@ -30,7 +30,7 @@ export const EmailLayout = ({
 					<Container className="mx-auto p-4 max-w-screen-sm">
 						<Section className="mb-4">
 							<Img
-								src="https://www.shiroisora.com/images/logo_gray100.png"
+								src="https://cloud-object-storage-shiroisora.s3.jp-tok.cloud-object-storage.appdomain.cloud/logo_v2_tp.png"
 								width="80"
 								height="80"
 								alt="shiroisora_logo"
@@ -41,7 +41,7 @@ export const EmailLayout = ({
 							{children}
 						</Section>
 						<Text className="text-sm text-gray-500 text-center">
-							シロイソラ <br/>
+							白イ空 <br/>
 							<Link
 								href="mailto:info@shiroisora.com"
 								className="text-gray-500 underline"
