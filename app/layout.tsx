@@ -4,7 +4,7 @@ import { ViewTransitions } from "next-view-transitions";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import { TWITTER_NAME, GOOGLE_ANALYTICS_ID } from "@/lib/band-metadata";
-import Favicon from "@/public/images/favicon.ico";
+import Favicon from "@/public/images/logo.ico";
 
 const notoSansJP = Noto_Sans_JP({ subsets: ["latin"] });
 // const mPlus1c = M_PLUS_1({ subsets: ['latin'] });
@@ -13,16 +13,16 @@ const notoSansJP = Noto_Sans_JP({ subsets: ["latin"] });
 export const metadata: Metadata = {
 	metadataBase: new URL(`https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`),
 	title: {
-		template: "%s | シロイソラ",
-		default: "シロイソラ official website",
+		template: "%s | 白イ空",
+		default: "白イ空 official website",
 	},
 	description:
-		"シロイソラのオフィシャルサイト。ライブスケジュールや過去のセットリスト、CDの情報など。",
+		"白イ空のオフィシャルサイト。ライブスケジュールや過去のセットリスト、CDの情報など。",
 	icons: [{ rel: "icon", url: Favicon.src }],
 	openGraph: {
 		title: {
-			template: "%s | シロイソラ",
-			default: "シロイソラ official website",
+			template: "%s | 白イ空",
+			default: "白イ空 official website",
 		},
 		type: "website",
 		locale: "ja_JP",

@@ -26,9 +26,9 @@ export default function Home() {
 			<NavBar />
 			<TopLogo />
 			<ScrollDownArrows />
-			<div className="container mx-auto min-h-[60vh] md:min-h-[70vh] max-w-xl lg:max-w-3xl h-auto">
+			<div className="container mx-auto min-h-[40vh] md:min-h-[50vh] max-w-xl lg:max-w-3xl h-auto">
 				<MV videoId={YOUTUBE_MV_ID} />
-				<div className="mt-24 lg:mt-12 mb-8 z-50 flex flex-col justify-center text-center">
+				<div className="mt-12 lg:mt-12 mb-8 z-50 flex flex-col justify-center text-center">
 					<h2 className="text-xl font-bold mb-4">News</h2>
 					<ul>
 						<li>

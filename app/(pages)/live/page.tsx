@@ -6,7 +6,7 @@ import { draftMode } from "next/headers";
 
 export const metadata: Metadata = {
 	title: "Live",
-	description: "シロイソラのライブスケジュールと過去のライブ情報",
+	description: "白イ空のライブスケジュールと過去のライブ情報",
 	openGraph: {
 		title: "Live",
 	},
@@ -21,7 +21,9 @@ export default async function LivePage() {
 
 	return (
 		<main className="container max-w-screen-lg w-11/12 mx-auto px-4">
-			<h1 className="flex justify-center text-4xl font-bold mt-8 mb-8">Live</h1>
+			<h1 className="flex justify-center text-4xl font-bold mt-0 lg:mt-8 mb-8">
+				Live
+			</h1>
 			{futureLives.length > 0 ? (
 				futureLives.map((live) => <LiveEntry key={live.sys.id} {...live} />)
 			) : (
