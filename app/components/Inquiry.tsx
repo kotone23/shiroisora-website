@@ -1,4 +1,6 @@
 "use client";
+
+import { useActionState } from "react";
 import { Field, FieldError } from "@/app/components/FormField";
 import { InputConform } from "@/app/components/conform/Input";
 import { RadioGroupConform } from "@/app/components/conform/RadioGroup";
@@ -9,7 +11,7 @@ import { submit } from "@/lib/form-actions";
 import { schema } from "@/lib/form-schema";
 import { useForm } from "@conform-to/react";
 import { parseWithZod } from "@conform-to/zod";
-import { useFormState, useFormStatus } from "react-dom";
+import { useFormStatus } from "react-dom";
 
 function Submit() {
 	const { pending } = useFormStatus();
@@ -21,7 +23,7 @@ function Submit() {
 }
 
 export default function Inquiry() {
-	const [result, action] = useFormState(submit, undefined);
+	const [result, action] = useActionState(submit, undefined);
 	const [form, fields] = useForm({
 		lastResult: result,
 		onValidate({ formData }) {

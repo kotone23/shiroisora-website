@@ -81,11 +81,11 @@ export default function Footer() {
 									ポリシーと規約
 								</a>
 								」をご覧ください。
-								<p className="mt-6">
+								<span className="mt-6 block">
 									また、サイトへのお問い合わせで取得した個人情報は、
 									<br className="hidden md:inline" />
 									必要な情報を連絡する用途にのみ利用します。
-								</p>
+								</span>
 							</DialogDescription>
 						</DialogHeader>
 					</DialogContent>

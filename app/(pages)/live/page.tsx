@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 };
 
 export default async function LivePage() {
-	const { isEnabled } = draftMode();
+	const { isEnabled } = await draftMode();
 	const contents = await getLiveContents(isEnabled);
 	const futureLives = contents
 		.filter((content) => !isPastLive(content.date))

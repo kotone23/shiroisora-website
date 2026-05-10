@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 };
 
 export default async function MediaPage() {
-	const { isEnabled } = draftMode();
+	const { isEnabled } = await draftMode();
 	const contents = await getMediaContents(isEnabled);
 
 	return (
