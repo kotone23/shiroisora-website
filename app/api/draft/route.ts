@@ -15,7 +15,7 @@ export async function GET(request: NextRequest) {
 		return new Response("Invalid token", { status: 401 });
 	}
 
-	draftMode().enable();
+	(await draftMode()).enable();
 	switch (page) {
 		case "live":
 			redirect("/live");

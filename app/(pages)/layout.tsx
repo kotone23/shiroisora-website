@@ -6,12 +6,14 @@ import { draftMode } from "next/headers";
 import Image from "next/image";
 import "../globals.css";
 
-export default function PageLayout({
-	children,
-}: {
-	children: React.ReactNode;
-}) {
-	const { isEnabled } = draftMode();
+export default async function PageLayout(
+    {
+        children,
+    }: {
+        children: React.ReactNode;
+    }
+) {
+	const { isEnabled } = await draftMode();
 	return (
 		<>
 			<header className="container mx-auto max-w-screen-lg mt-6 mb-6">
