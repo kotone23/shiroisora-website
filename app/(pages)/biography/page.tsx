@@ -18,16 +18,18 @@ export default function Home() {
 					<Image
 						src="/images/profile.jpg"
 						alt="profile"
-						width={1000}
-						height={750}
-						quality={100}
+						width={1024}
+						height={640}
 						priority
 					/>
 				</div>
+				<div className="mt-2 text-right text-xs text-muted-foreground">
+					L→R / 田中琴音、ひかり、縫部たまき、ねね
+				</div>
 			</div>
 			<div className="p-6">
-				<h1 className="py-2 text-center text-xl">白イ空</h1>
-				<div className="p-3 text-xs md:text-sm text-left md:text-center">
+				<h1 className="text-center text-xl">白イ空</h1>
+				<div className="px-3 py-6 text-xs md:text-sm text-left md:text-center">
 					2016年、幼馴染のひかりと縫部で立ち上げ。
 					<br className="hidden md:inline" />
 					それぞれの学生時代からの友人である田中とねねを誘い、2017年より活動開始。
