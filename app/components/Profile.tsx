@@ -3,7 +3,7 @@ import { FaInstagram, FaXTwitter } from "react-icons/fa6";
 
 function BandMembers() {
 	return (
-		<div className="flex items-center justify-center mt-4">
+		<div className="flex items-center justify-center">
 			<div className="grid grid-cols-2 gap-0">
 				<div className="flex flex-col items-center justify-center p-4">
 					<span className="mb-0.5 text-muted-foreground text-xs">
